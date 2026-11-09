@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>韩剧官网tv - 韩剧推荐与追剧指南</title>
+  <meta name="description" content="韩剧官网tv聚合近期热门韩剧推荐、更新动态与类型解析，包含《泪之女王》《黑暗荣耀》《背着善宰跑》等条目，适合韩剧迷查找可追剧集与对比看点。">
+  <meta name="keywords" content="韩剧推荐,热播韩剧,韩剧类型,追剧指南,韩剧榜单">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23d94f70'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif'%3E韩%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --color-primary: #c73a5a;
+      --color-primary-dark: #a82e4a;
+      --color-primary-light: #fceaeef5;
+      --color-accent: #f4b63f;
+      --color-accent-soft: #fef6e6;
+      --color-bg: #fdf8f9;
+      --color-surface: #ffffff;
+      --color-text: #1f1b1e;
+      --color-text-secondary: #5e5459;
+      --color-text-muted: #8e8288;
+      --color-border: #ece4e8;
+      --color-border-light: #f4eef1;
+      --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      --font-serif: "Songti SC", "Noto Serif SC", Georgia, serif;
+      --shadow-sm: 0 1px 3px rgba(48, 18, 30, 0.04);
+      --shadow-md: 0 4px 16px rgba(48, 18, 30, 0.07);
+      --shadow-lg: 0 8px 32px rgba(48, 18, 30, 0.1);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --header-height: 64px;
+      --announcement-height: 40px;
+      --sticky-height: calc(var(--announcement-height) + var(--header-height));
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--sticky-height) + 16px); }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-primary-dark); }
+    ul, ol { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* 吸顶公告条 */
+    .announcement-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #2b1a22, #3d222e);
+      color: #f4e0e7;
+      height: var(--announcement-height);
+      display: flex;
+      align-items: center;
+      font-size: 13.5px;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+    }
+    .announcement-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .announcement-inner::-webkit-scrollbar { display: none; }
+    .announcement-badge {
+      background: var(--color-accent);
+      color: #2b1a22;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+    .announcement-text { overflow: hidden; text-overflow: ellipsis; }
+    .announcement-divider { color: #6e4a59; flex-shrink: 0; }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky;
+      top: var(--announcement-height);
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      height: var(--header-height);
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--color-primary), #e8748e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      box-shadow: 0 2px 8px rgba(199, 58, 90, 0.3);
+    }
+    .brand-text {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 6px 14px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-nav a:hover {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+    .header-search {
+      display: flex;
+      align-items: center;
+      background: var(--color-border-light);
+      border-radius: 22px;
+      padding: 0 6px 0 14px;
+      height: 38px;
+      flex-shrink: 0;
+      width: 200px;
+      transition: box-shadow 0.2s;
+    }
+    .header-search:focus-within {
+      box-shadow: 0 0 0 2px var(--color-primary);
+      background: #fff;
+    }
+    .header-search input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13.5px;
+      width: 100%;
+      color: var(--color-text);
+      font-family: inherit;
+    }
+    .header-search input::placeholder { color: var(--color-text-muted); }
+    .header-search button {
+      border: none;
+      background: var(--color-primary);
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.18s;
+    }
+    .header-search button:hover { background: var(--color-primary-dark); }
+    .header-search button svg { width: 15px; height: 15px; }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(165deg, #fff5f7 0%, #fdf0f3 40%, #fef8f5 100%);
+      border-bottom: 1px solid var(--color-border-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(199, 58, 90, 0.07) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -160px;
+      left: -100px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(244, 182, 63, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 52px 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-size: clamp(32px, 4.2vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      line-height: 1.24;
+      margin-bottom: 10px;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--color-primary);
+      font-weight: 600;
+      background: rgba(199, 58, 90, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 580px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14.5px;
+      padding: 11px 26px;
+      border-radius: 30px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 3px 14px rgba(199, 58, 90, 0.28);
+    }
+    .btn-primary:hover { background: var(--color-primary-dark); color: #fff; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      font-size: 14.5px;
+      padding: 11px 24px;
+      border-radius: 30px;
+      border: 1px solid var(--color-border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .hero-visual {
+      position: relative;
+      height: 300px;
+    }
+    .hero-visual-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 主布局三栏 */
+    .page-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 260px;
+      gap: 32px;
+      align-items: start;
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
+
+    /* 左频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-height) + 24px);
+    }
+    .channel-sidebar h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      transition: background 0.15s, color 0.15s;
+    }
+    .channel-list a:hover, .channel-list a:focus-visible {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      outline: none;
+    }
+    .channel-list .channel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-border);
+      flex-shrink: 0;
+    }
+    .channel-list a:hover .channel-dot { background: var(--color-primary); }
+
+    /* 中主内容 */
+    .main-content { min-width: 0; }
+    .section {
+      margin-bottom: 44px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+    .section-head h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+    .section-head .section-sub {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+    .section-head a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+
+    /* 概览文字 */
+    .overview-text {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      font-size: 14.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+      box-shadow: var(--shadow-sm);
+    }
+    .overview-text p + p { margin-top: 12px; }
+    .overview-text strong { color: var(--color-text); font-weight: 600; }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .drama-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: box-shadow 0.22s, transform 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+    .drama-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .drama-card-img {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f2e9ec;
+    }
+    .drama-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .drama-card:hover .drama-card-img img { transform: scale(1.04); }
+    .drama-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(43, 26, 34, 0.78);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .drama-card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .drama-card-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .drama-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .tag {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      background: var(--color-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--color-border-light);
+    }
+    .tag.accent {
+      background: var(--color-accent-soft);
+      color: #9a6d1a;
+      border-color: #f5e3b8;
+    }
+    .drama-desc {
+      font-size: 12.8px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 10px;
+    }
+    .drama-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 9px;
+    }
+    .drama-score { color: var(--color-accent); font-weight: 700; font-size: 13px; }
+
+    /* 更新动态列表 */
+    .update-list {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--color-border-light);
+      transition: background 0.15s;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover { background: var(--color-primary-light); }
+    .update-time {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      min-width: 62px;
+      padding-top: 1px;
+    }
+    .update-body { flex: 1; min-width: 0; }
+    .update-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .update-summary {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+    .update-badge {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .badge-new { background: #fde8ee; color: var(--color-primary); }
+    .badge-hot { background: #fef3dc; color: #b07c1a; }
+    .badge-tv { background: #e8f0fe; color: #3b6cb0; }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-sm);
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .category-item:hover {
+      background: var(--color-primary-light);
+      border-color: #f2cdd8;
+      color: var(--color-primary);
+    }
+    .category-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 30px 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .deep-dive h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--color-text);
+    }
+    .deep-dive > p {
+      font-size: 14.5px;
+      color: var(--color-text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 26px 0 10px;
+      padding-left: 12px;
+      border-left: 3px solid var(--color-primary);
+      line-height: 1.4;
+    }
+    .deep-dive p {
+      font-size: 14.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .deep-dive ul {
+      margin: 8px 0 16px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .deep-dive ul li {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.7;
+    }
+    .deep-dive ul li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .deep-dive strong { color: var(--color-text); font-weight: 600; }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .guide-step {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      position: relative;
+    }
+    .guide-step-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-primary-light);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .guide-step h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .guide-step p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq-list {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item summary {
+      padding: 15px 22px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.15s;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before {
+      content: '+';
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-primary);
+      width: 20px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::before {
+      content: '−';
+      transform: rotate(180deg);
+    }
+    .faq-item summary:hover { background: var(--color-primary-light); }
+    .faq-answer {
+      padding: 0 22px 18px 52px;
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 用户评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .comment-item {
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .comment-item:last-child { border-bottom: none; }
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .comment-body { flex: 1; min-width: 0; }
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+    .comment-user { font-size: 13px; font-weight: 600; color: var(--color-text); }
+    .comment-time { font-size: 11.5px; color: var(--color-text-muted); }
+    .comment-text { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.65; }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .news-item {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .news-title:hover { color: var(--color-primary); }
+    .news-meta {
+      font-size: 11.5px;
+      color: var(--color-text-muted);
+      margin-bottom: 5px;
+    }
+    .news-summary {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      transition: all 0.18s;
+    }
+    .tag-cloud a:hover {
+      background: var(--color-primary-light);
+      border-color: #f0c8d4;
+      color: var(--color-primary);
+    }
+
+    /* 热门榜单 */
+    .rank-list {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--color-border-light);
+      transition: background 0.15s;
+    }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-item:hover { background: var(--color-primary-light); }
+    .rank-num {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-muted);
+      width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .rank-num.top { color: var(--color-primary); }
+    .rank-info { flex: 1; min-width: 0; }
+    .rank-name { font-size: 14px; font-weight: 600; color: var(--color-text); }
+    .rank-sub { font-size: 12px; color: var(--color-text-muted); }
+    .rank-score { font-size: 13px; font-weight: 700; color: var(--color-accent); flex-shrink: 0; }
+
+    /* 右侧辅助栏 */
+    .aux-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-height) + 24px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .aux-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .aux-panel-head {
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .aux-panel-head .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+    .aux-list { padding: 6px 0; }
+    .aux-list li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      transition: background 0.15s, color 0.15s;
+    }
+    .aux-list li a:hover {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+    .aux-rank {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      width: 18px;
+      flex-shrink: 0;
+    }
+    .aux-rank.hot { color: var(--color-primary); }
+    .aux-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 14px 18px;
+    }
+    .aux-tag-list a {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      background: var(--color-bg);
+      padding: 4px 10px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border-light);
+      transition: all 0.15s;
+    }
+    .aux-tag-list a:hover {
+      background: var(--color-primary-light);
+      border-color: #f0c8d4;
+      color: var(--color-primary);
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: #1f171b;
+      color: #c4b5bb;
+      margin-top: 24px;
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 44px 24px 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #3a2d33;
+    }
+    .footer-brand .brand { margin-bottom: 12px; }
+    .footer-brand .brand-mark { width: 34px; height: 34px; font-size: 16px; }
+    .footer-brand .brand-text { color: #f0e6ea; font-size: 17px; }
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #9e8a92;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f0e6ea;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 7px; }
+    .footer-col ul li a {
+      font-size: 12.5px;
+      color: #9e8a92;
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: #f0e6ea; }
+    .footer-bottom {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #7a6770;
+    }
+    .footer-note {
+      font-size: 11.5px;
+      color: #6b5a62;
+      line-height: 1.6;
+    }
+
+    /* 搜索无结果 */
+    .search-empty {
+      display: none;
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      background: var(--color-surface);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-md);
+    }
+    .search-empty.visible { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1200px) {
+      .page-layout {
+        grid-template-columns: 160px minmax(0, 1fr) 230px;
+        gap: 24px;
+      }
+      .hero-inner { grid-template-columns: 1fr 280px; gap: 32px; }
+    }
+    @media (max-width: 1024px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .channel-sidebar {
+        position: static;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        padding: 0 0 16px;
+        scrollbar-width: none;
+        order: -1;
+      }
+      .channel-sidebar::-webkit-scrollbar { display: none; }
+      .channel-sidebar h2 { display: none; }
+      .channel-list { display: flex; gap: 4px; }
+      .channel-list a {
+        white-space: nowrap;
+        padding: 6px 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        font-size: 13px;
+      }
+      .channel-list .channel-dot { display: none; }
+      .aux-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 8px;
+      }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+      .hero-visual { height: 220px; max-width: 400px; }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+    @media (max-width: 740px) {
+      .header-inner { gap: 12px; padding: 0 16px; }
+      .brand-text { font-size: 16px; }
+      .brand-mark { width: 32px; height: 32px; font-size: 15px; }
+      .main-nav { display: none; }
+      .header-search { width: 150px; }
+      .hero-inner { padding: 32px 16px 28px; }
+      .hero-content h1 { font-size: 28px; }
+      .hero-desc { font-size: 14.5px; }
+      .page-layout { padding: 0 16px 32px; padding-top: 24px; }
+      .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .guide-steps { grid-template-columns: 1fr; }
+      .aux-sidebar { grid-template-columns: 1fr; }
+      .deep-dive { padding: 22px 18px; }
+      .overview-text { padding: 18px; }
+      .footer-top { grid-template-columns: 1fr; gap: 20px; }
+      .footer-inner { padding: 32px 16px 24px; }
+      .section-head h2 { font-size: 18px; }
+      .comment-item { padding: 12px 14px; }
+      .faq-item summary { padding: 13px 16px; font-size: 13.5px; }
+      .faq-answer { padding: 0 16px 14px 44px; }
+      .update-item { padding: 11px 14px; }
+      .news-item { padding: 13px 16px; }
+      .rank-item { padding: 10px 14px; }
+      .announcement-inner { padding: 0 16px; }
+    }
+    @media (max-width: 400px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* 焦点可见 */
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      z-index: 200;
+      font-size: 13px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 6px; color: #fff; }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">跳至主内容</a>
+
+  <!-- 吸顶公告条 -->
+  <div class="announcement-bar" role="region" aria-label="更新公告">
+    <div class="announcement-inner">
+      <span class="announcement-badge">更新</span>
+      <span class="announcement-text">11 月 8 日新增《泪之女王》特辑解析 · 《黑暗荣耀》第 2 季花絮上线 · 本周韩剧热度榜出炉</span>
+      <span class="announcement-divider">|</span>
+      <span class="announcement-text">《背着善宰跑》第 12 集更新时间调整至 11 月 9 日 21:00</span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#top" class="brand" aria-label="韩剧官网tv 首页">
+        <span class="brand-mark" aria-hidden="true">韩</span>
+        <span class="brand-text">韩剧官网tv</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#featured">精选推荐</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">追剧指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#ranking">热度榜单</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <form class="header-search" role="search" id="search-form" onsubmit="return false;">
+        <input type="search" id="search-input" placeholder="搜索剧名或类型" aria-label="搜索剧名或类型">
+        <button type="submit" aria-label="搜索">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- 首屏 -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-kicker">韩剧聚合 · 追剧导航</span>
+        <h1>韩剧官网tv</h1>
+        <p class="hero-desc">汇聚近期热门韩剧、经典类型剧与更新动态，涵盖爱情、悬疑、复仇、奇幻等方向，提供剧集看点、类型对比、追剧顺序与社区讨论，帮助韩剧迷快速找到想看的作品。</p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn-primary">浏览精选剧集</a>
+          <a href="/#ranking" class="btn-outline">查看热度榜单</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="hero-visual-svg" viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="40" width="280" height="180" rx="16" fill="#fceaeef5" stroke="#f2cdd8" stroke-width="1.5"/>
+          <rect x="52" y="62" width="110" height="70" rx="8" fill="#e8748e" opacity="0.25"/>
+          <rect x="52" y="62" width="110" height="70" rx="8" stroke="#c73a5a" stroke-width="1.2" opacity="0.4"/>
+          <rect x="174" y="62" width="114" height="44" rx="8" fill="#f4b63f" opacity="0.2"/>
+          <rect x="174" y="62" width="114" height="44" rx="8" stroke="#f4b63f" stroke-width="1.2" opacity="0.5"/>
+          <rect x="174" y="116" width="114" height="46" rx="8" fill="#c73a5a" opacity="0.12"/>
+          <rect x="52" y="146" width="236" height="56" rx="8" fill="#fdf8f9" stroke="#ece4e8" stroke-width="1"/>
+          <circle cx="76" cy="174" r="14" fill="#fceaeef5" stroke="#c73a5a" stroke-width="1.2"/>
+          <path d="M72 174 L82 174 M77 169 L77 179" stroke="#c73a5a" stroke-width="1.5" stroke-linecap="round"/>
+          <rect x="100" y="163" width="120" height="9" rx="4" fill="#e8dfe3"/>
+          <rect x="100" y="178" width="80" height="7" rx="3.5" fill="#f0eaed"/>
+          <circle cx="290" cy="38" r="18" fill="#f4b63f" opacity="0.15"/>
+          <circle cx="290" cy="38" r="8" fill="#f4b63f" opacity="0.4"/>
+          <rect x="30" y="238" width="280" height="36" rx="12" fill="#fff" stroke="#ece4e8" stroke-width="1"/>
+          <circle cx="58" cy="256" r="9" fill="#fceaeef5"/>
+          <rect x="78" y="250" width="100" height="6" rx="3" fill="#e8dfe3"/>
+          <rect x="78" y="260" width="60" height="5" rx="2.5" fill="#f0eaed"/>
+          <circle cx="286" cy="256" r="11" fill="#c73a5a" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主布局：三栏门户 -->
+  <div class="page-layout" id="main-content">
+    <!-- 左频道索引 -->
+    <aside class="channel-sidebar" aria-label="频道索引">
+      <h2>频道索引</h2>
+      <nav class="channel-list">
+        <a href="/#featured"><span class="channel-dot"></span>精选推荐</a>
+        <a href="/#updates"><span class="channel-dot"></span>最新更新</a>
+        <a href="/#categories"><span class="channel-dot"></span>分类入口</a>
+        <a href="/#overview"><span class="channel-dot"></span>领域概览</a>
+        <a href="/#deep-dive"><span class="channel-dot"></span>深度解析</a>
+        <a href="/#guide"><span class="channel-dot"></span>追剧指南</a>
+        <a href="/#faq"><span class="channel-dot"></span>常见问答</a>
+        <a href="/#comments"><span class="channel-dot"></span>用户评论</a>
+        <a href="/#news"><span class="channel-dot"></span>相关资讯</a>
+        <a href="/#related"><span class="channel-dot"></span>相关推荐</a>
+        <a href="/#ranking"><span class="channel-dot"></span>热度榜单</a>
+        <a href="/#timeline"><span class="channel-dot"></span>更新日历</a>
+      </nav>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+      <!-- 主题领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-head">
+          <h2>韩剧领域概览</h2>
+          <span class="section-sub">类型方向与当前值得关注的内容</span>
+        </div>
+        <div class="overview-text">
+          <p>韩剧官网tv所聚合的内容覆盖当前韩剧市场的几大核心方向：以<strong>《泪之女王》</strong>为代表的浪漫爱情剧、以<strong>《黑暗荣耀》</strong>为代表的复仇悬疑剧、以<strong>《背着善宰跑》</strong>为代表的穿越奇幻爱情，以及家庭剧、职场剧和古装剧。每个方向在叙事节奏、情感密度和观看体验上有明显差异，观众可以根据自己偏好的情绪强度和追剧时间灵活选择。</p>
+          <p>从近期热度来看，复仇与悬疑类型持续走高，<strong>《黑暗荣耀》</strong>第二季的相关讨论仍在社区中保持活跃；浪漫爱情剧则依靠演员化学反应和名场面片段保持传播力，<strong>《泪之女王》</strong>的配角线和家庭戏份成为观众反复讨论的焦点。奇幻穿越题材在<strong>《背着善宰跑》</strong>带动下重新获得关注，观众对“双向救赎”和“时间线改变”的设定接受度较高。</p>
+          <p>对于刚接触韩剧的观众，建议从单集时长为 60—70 分钟、总集数在 12—16 集的作品入手；如果偏好强情节推进，可以优先选择悬疑复仇类；如果更看重情感共鸣和日常氛围，家庭剧与爱情剧更合适。</p>
+        </div>
+      </section>
+
+      <!-- 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2>精选韩剧推荐</h2>
+          <a href="/#ranking">查看完整榜单 →</a>
+        </div>
+        <div class="card-grid">
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/leizhiwangnv01/400/300" width="400" height="300" loading="lazy" alt="泪之女王剧集封面">
+              <span class="drama-badge">热播中</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">泪之女王</h3>
+              <div class="drama-tags">
+                <span class="tag accent">爱情</span>
+                <span class="tag">家庭</span>
+                <span class="tag">虐恋</span>
+              </div>
+              <p class="drama-desc">财阀千金与乡村丈夫的婚姻危机，在绝症与家族权力斗争中重新靠近。金秀贤与金智媛的对手戏撑起全剧情感张力。</p>
+              <div class="drama-meta">
+                <span>更新至第 14 集</span>
+                <span class="drama-score">9.2</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/heianrongyao02/400/300" width="400" height="300" loading="lazy" alt="黑暗荣耀剧集封面">
+              <span class="drama-badge">经典</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">黑暗荣耀</h3>
+              <div class="drama-tags">
+                <span class="tag accent">复仇</span>
+                <span class="tag">悬疑</span>
+                <span class="tag">校园暴力</span>
+              </div>
+              <p class="drama-desc">文东恩用十八年布局完成对校园暴力加害者的复仇。宋慧乔转型之作，以冷峻笔触拆解阶级与恶的共生关系。</p>
+              <div class="drama-meta">
+                <span>全 16 集已完结</span>
+                <span class="drama-score">9.5</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/beizhuoshanyun03/400/300" width="400" height="300" loading="lazy" alt="背着善宰跑剧集封面">
+              <span class="drama-badge">新剧</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">背着善宰跑</h3>
+              <div class="drama-tags">
+                <span class="tag accent">奇幻</span>
+                <span class="tag">穿越</span>
+                <span class="tag">双向救赎</span>
+              </div>
+              <p class="drama-desc">粉丝穿越回过去拯救偶像的生命，时间线每次改变都会引发新的连锁反应。设定轻巧但情感落点扎实。</p>
+              <div class="drama-meta">
+                <span>更新至第 11 集</span>
+                <span class="drama-score">8.9</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/maoyixiang04/400/300" width="400" height="300" loading="lazy" alt="猫一只剧集封面">
+              <span class="drama-badge">治愈</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">猫一只</h3>
+              <div class="drama-tags">
+                <span class="tag accent">治愈</span>
+                <span class="tag">奇幻</span>
+                <span class="tag">日常</span>
+              </div>
+              <p class="drama-desc">一只会变成人的猫与社恐插画师同住一个屋檐下，用琐碎日常消解孤独感。适合睡前轻松观看。</p>
+              <div class="drama-meta">
+                <span>全 12 集已完结</span>
+                <span class="drama-score">8.4</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/youyizhong05/400/300" width="400" height="300" loading="lazy" alt="有一种悲伤剧集封面">
+              <span class="drama-badge">催泪</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">有一种悲伤</h3>
+              <div class="drama-tags">
+                <span class="tag accent">虐恋</span>
+                <span class="tag">悬疑</span>
+                <span class="tag">反转</span>
+              </div>
+              <p class="drama-desc">一场车祸牵出三个家庭的秘密，叙事在时间线之间来回跳跃，每一集结尾都有信息增量。</p>
+              <div class="drama-meta">
+                <span>全 14 集已完结</span>
+                <span class="drama-score">8.7</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/qingchunwangshi06/400/300" width="400" height="300" loading="lazy" alt="青春往事剧集封面">
+              <span class="drama-badge">怀旧</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">青春往事</h3>
+              <div class="drama-tags">
+                <span class="tag accent">青春</span>
+                <span class="tag">友情</span>
+                <span class="tag">成长</span>
+              </div>
+              <p class="drama-desc">1990 年代小城高中生的友情与朦胧爱情，大量时代细节还原，适合喜欢慢节奏怀旧题材的观众。</p>
+              <div class="drama-meta">
+                <span>全 16 集已完结</span>
+                <span class="drama-score">8.6</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/yiyuanjianhu07/400/300" width="400" height="300" loading="lazy" alt="医院监护剧集封面">
+              <span class="drama-badge">职场</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">医院监护</h3>
+              <div class="drama-tags">
+                <span class="tag accent">医疗</span>
+                <span class="tag">职场</span>
+                <span class="tag">人性</span>
+              </div>
+              <p class="drama-desc">急诊科医生在资源紧张与伦理困境中做出选择，病例设计贴近现实，配角群像塑造扎实。</p>
+              <div class="drama-meta">
+                <span>更新至第 9 集</span>
+                <span class="drama-score">8.8</span>
+              </div>
+            </div>
+          </article>
+          <article class="drama-card">
+            <div class="drama-card-img">
+              <img src="https://picsum.photos/seed/wangchaojimi08/400/300" width="400" height="300" loading="lazy" alt="王朝机密剧集封面">
+              <span class="drama-badge">古装</span>
+            </div>
+            <div class="drama-card-body">
+              <h3 class="drama-card-title">王朝机密</h3>
+              <div class="drama-tags">
+                <span class="tag accent">古装</span>
+                <span class="tag">权谋</span>
+                <span class="tag">动作</span>
+              </div>
+              <p class="drama-desc">朝鲜王朝背景下的宫廷谍战，动作场面与朝堂博弈交替推进，适合喜欢快节奏古装的观众。</p>
+              <div class="drama-meta">
+                <span>全 20 集已完结</span>
+                <span class="drama-score">8.3</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 最新更新 / 动态 -->
+      <section class="section" id="updates">
+        <div class="section-head">
+          <h2>最新更新与动态</h2>
+          <span class="section-sub">2026 年 11 月 8 日更新</span>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-time">今天 09:30</span>
+            <div class="update-body">
+              <div class="update-title">《泪之女王》第 14 集上线</div>
+              <div class="update-summary">洪海仁病情出现转折，白贤宇在家族会议上的发言引发新冲突。</div>
+            </div>
+            <span class="update-badge badge-new">新集</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">今天 08:15</span>
+            <div class="update-body">
+              <div class="update-title">《黑暗荣耀》第 2 季幕后花絮公开</div>
+              <div class="update-summary">包含文东恩与河道英对峙场景的排练片段，时长约 12 分钟。</div>
+            </div>
+            <span class="update-badge badge-hot">花絮</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">昨天 21:10</span>
+            <div class="update-body">
+              <div class="update-title">《背着善宰跑》第 12 集更新时间调整</div>
+              <div class="update-summary">原定 11 月 8 日播出顺延至 11 月 9 日 21:00，平台已发布公告。</div>
+            </div>
+            <span class="update-badge badge-tv">调整</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">昨天 18:40</span>
+            <div class="update-body">
+              <div class="update-title">《医院监护》第 9 集上线</div>
+              <div class="update-summary">急诊科迎来大规模食物中毒事件，实习医生的判断失误成为主线。</div>
+            </div>
+            <span class="update-badge badge-new">新集</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 6 日</span>
+            <div class="update-body">
+              <div class="update-title">《猫一只》特别篇预告发布</div>
+              <div class="update-summary">以配角猫视角展开的 30 分钟特别篇，预计 11 月下旬上线。</div>
+            </div>
+            <span class="update-badge badge-hot">预告</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 5 日</span>
+            <div class="update-body">
+              <div class="update-title">《青春往事》导演剪辑版上线</div>
+              <div class="update-summary">新增约 20 分钟未播出片段，主要集中在配角友情线。</div>
+            </div>
+            <span class="update-badge badge-tv">版本</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 4 日</span>
+            <div class="update-body">
+              <div class="update-title">《有一种悲伤》登顶社区讨论榜</div>
+              <div class="update-summary">大结局反转引发二次讨论，相关帖子单日增长超过 3000 条。</div>
+            </div>
+            <span class="update-badge badge-hot">热议</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 3 日</span>
+            <div class="update-body">
+              <div class="update-title">《王朝机密》动作特辑公开</div>
+              <div class="update-summary">主演训练与威亚拍摄花絮，展示宫殿屋顶追逐戏的拍摄过程。</div>
+            </div>
+            <span class="update-badge badge-new">特辑</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 2 日</span>
+            <div class="update-body">
+              <div class="update-title">《泪之女王》OST 第 5 首公开</div>
+              <div class="update-summary">由独立乐队演唱的插曲，出现在第 13 集结尾场景。</div>
+            </div>
+            <span class="update-badge badge-hot">OST</span>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 1 日</span>
+            <div class="update-body">
+              <div class="update-title">《黑暗荣耀》角色解析专题上线</div>
+              <div class="update-summary">梳理主要人物的动机线与关键道具，共六个章节。</div>
+            </div>
+            <span class="update-badge badge-tv">专题</span>
+          </div>
+        </div>
+        <div class="search-empty" id="search-empty">没有找到匹配的剧集或条目，试试其他关键词。</div>
+      </section>
+
+      <!-- 分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-head">
+          <h2>按类型找韩剧</h2>
+          <span class="section-sub">八类常见方向</span>
+        </div>
+        <div class="category-grid">
+          <a href="/#featured" class="category-item"><span class="category-icon">💕</span>浪漫爱情</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">🔍</span>悬疑推理</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">⚔️</span>复仇爽剧</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">✨</span>奇幻穿越</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">🏥</span>职场医疗</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">👑</span>古装权谋</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">🏠</span>家庭伦理</a>
+          <a href="/#featured" class="category-item"><span class="category-icon">🎓</span>青春校园</a>
+        </div>
+      </section>
+
+      <!-- 深度解析 -->
+      <section class="section" id="deep-dive">
+        <div class="deep-dive">
+          <h2>韩剧类型深入解析</h2>
+          <p>韩剧在类型融合上越来越成熟，但不同方向的核心观看体验差异明显。下面从叙事结构、情感节奏和判断标准三个层面展开，帮助你在选择时更有依据。</p>
+
+          <h3>复仇悬疑类：布局感与信息释放</h3>
+          <p>以《黑暗荣耀》为代表，复仇类韩剧的看点在于“布局感”——主角在早期就制定完整计划，观众跟随剧情逐步看到棋子落位。这类剧通常采用双时间线，过去与现在的场景交替出现，每一集结尾释放一个关键信息。</p>
+          <ul>
+            <li>判断标准：前两集是否建立清晰的复仇动机；反派是否具备足够的压迫感；信息释放节奏是否稳定，而非集中在最后两集。</li>
+            <li>适合人群：喜欢强情节推进、能接受压抑氛围、不排斥灰色主角的观众。</li>
+            <li>观看建议：尽量连续观看，避免在关键反转前中断，否则情绪累积会断裂。</li>
+          </ul>
+
+          <h3>浪漫爱情类：化学反应与日常细节</h3>
+          <p>《泪之女王》把婚姻危机、财阀斗争和绝症设定放在同一条线上，但真正留住观众的是主角之间大量生活化的争吵与和解。爱情类韩剧的质量分水岭往往不在主线冲突，而在配角线和日常对话是否自然。</p>
+          <ul>
+            <li>判断标准：男女主角的对话是否有信息量，还是单纯重复甜宠套路；配角是否有独立动机；家庭场景是否推动主线。</li>
+            <li>适合人群：偏好情感共鸣、享受慢节奏互动、对台词质量敏感的观众。</li>
+            <li>观看建议：可以配合 OST 单独听，音乐往往能补足画面之外的情绪。</li>
+          </ul>
+
+          <h3>奇幻穿越类：规则设定与情感落点</h3>
+          <p>《背着善宰跑》的时间线改变会引发连锁反应，这种“规则感”是奇幻类韩剧能否成立的关键。设定越具体，观众的代入感越强；反之，如果规则模糊，情感线会显得悬浮。</p>
+          <ul>
+            <li>判断标准：时间穿越是否有明确代价；每次改变后，人物关系是否产生合理变化；结局是否回收前期伏笔。</li>
+            <li>适合人群：喜欢设定推演、愿意注意细节、能接受一定烧脑程度的观众。</li>
+            <li>观看建议：可以边看边记录时间线变化，尤其是涉及多角色穿越的作品。</li>
+          </ul>
+
+          <h3>家庭与职场剧：群像与真实感</h3>
+          <p>家庭剧和职场剧的观看体验更接近“陪伴感”。以《医院监护》为例，医疗案例只是外壳，真正吸引人的是医生在资源有限时的选择困境。这类剧的单集冲突强度不一定很高，但人物关系网更复杂，适合长期追看。</p>
+          <ul>
+            <li>判断标准：配角是否有完整的人物弧线；专业场景是否经过基本考据；是否避免用单一反派推动所有矛盾。</li>
+            <li>适合人群：喜欢群像戏、对行业细节有兴趣、不追求强反转的观众。</li>
+          </ul>
+
+          <h3>不同方向的消费策略</h3>
+          <p>如果你的追剧时间有限，优先选择总集数在 12—16 集、单集时长 60 分钟左右的迷你剧；如果偏好沉浸式体验，可以等完结后连续观看，避免每周等待带来的情绪中断。对于复仇悬疑类，建议至少连看两集再决定是否继续；爱情类则可以随时切入，对前后集依赖度较低。</p>
+        </div>
+      </section>
+
+      <!-- 体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-head">
+          <h2>韩剧观看顺序与判断指南</h2>
+          <span class="section-sub">从哪部开始看、怎么比较</span>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="guide-step-num">01</div>
+            <h4>先确定情绪需求</h4>
+            <p>想放松选《猫一只》这类治愈日常；想体验强情节选《黑暗荣耀》；想哭一场选《有一种悲伤》。情绪方向确定后，再筛类型。</p>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">02</div>
+            <h4>看前两集定去留</h4>
+            <p>韩剧通常在前两集完成主要人物和冲突的铺陈。如果两集后仍找不到可关注的角色，不必勉强继续。悬疑类例外，可以放宽到第四集。</p>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">03</div>
+            <h4>比较同类条目看配角</h4>
+            <p>同类型作品之间，主角设定往往相似，差异更多体现在配角线和日常场景。《泪之女王》的家族群像就是区别于普通爱情剧的关键。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2>常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>韩剧一般多久更新一次？</summary>
+            <div class="faq-answer">大多数迷你剧采用每周两集的更新节奏，分别安排在周五、周六或周六、周日。部分平台会一次性放出全集，但主流韩剧仍以周更为主。遇到体育赛事或节日，可能顺延一周。</div>
+          </details>
+          <details class="faq-item">
+            <summary>《黑暗荣耀》和《泪之女王》有什么区别？</summary>
+            <div class="faq-answer">两部剧的类型方向完全不同。《黑暗荣耀》是复仇悬疑剧，主线是校园暴力受害者的长期布局，情绪基调偏冷峻；《泪之女王》是爱情家庭剧，围绕婚姻危机和财阀家族展开，情感浓度更高，节奏相对舒缓。</div>
+          </details>
+          <details class="faq-item">
+            <summary>第一次看韩剧从哪部开始比较好？</summary>
+            <div class="faq-answer">如果不想投入太多时间，可以从 12 集的《猫一只》或《背着善宰跑》入手，篇幅短、设定清晰。如果想体验韩剧的强项——情感张力和人物塑造，可以从《泪之女王》或《青春往事》开始。复仇类建议放在有连续观看时间的时候再开。</div>
+          </details>
+          <details class="faq-item">
+            <summary>复仇类韩剧的评判标准通常是什么？</summary>
+            <div class="faq-answer">主要看三点：复仇动机是否在早期建立、反派的压迫感是否足够、信息释放是否均匀。如果所有反转都集中在最后两集，前面容易显得拖沓；好的复仇剧会让观众在每一集都获得新的拼图。</div>
+          </details>
+          <details class="faq-item">
+            <summary>韩剧的 OST 值得单独听吗？</summary>
+            <div class="faq-answer">值得。韩剧 OST 通常与剧情情绪高度绑定，脱离画面后仍有一定可听性。尤其是爱情剧和青春剧，插曲往往承担了场景之间的情绪过渡。《泪之女王》和《青春往事》的原声带在社区中讨论度较高。</div>
+          </details>
+          <details class="faq-item">
+            <summary>古装韩剧和现代剧在观看体验上有什么不同？</summary>
+            <div class="faq-answer">古装剧通常集数更多，人物关系更复杂，需要一定的背景知识（如朝鲜王朝的官职体系）才能完全理解权谋线。现代剧节奏更快，对背景知识要求低。如果第一次接触古装，可以从动作元素较多的《王朝机密》开始。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-head">
+          <h2>用户评论</h2>
+          <span class="section-sub">来自社区的追剧反馈</span>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item"><div class="comment-avatar">追</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">追剧不睡觉</span><span class="comment-time">今天 10:22</span></div><div class="comment-text">《泪之女王》第 14 集白贤宇在家族会议那段演得太好了，终于不是一味忍让的设定。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">黑</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">黑咖啡不加糖</span><span class="comment-time">今天 09:05</span></div><div class="comment-text">《黑暗荣耀》刷了三遍，每次看都能发现新的伏笔。河道英这个角色比主角还难演。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">善</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">善宰跑起来</span><span class="comment-time">昨天 23:40</span></div><div class="comment-text">《背着善宰跑》第 11 集结尾那个时间线变化有点突然，感觉编剧在赶进度。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">猫</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">猫猫统治世界</span><span class="comment-time">昨天 20:15</span></div><div class="comment-text">《猫一只》特别篇快来吧，正片 12 集根本不够看，配角猫的视角应该会很有趣。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">医</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">医学生小朴</span><span class="comment-time">昨天 18:32</span></div><div class="comment-text">《医院监护》的病例设计比想象中严谨，至少没有出现明显的医学常识错误，这点很难得。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">青</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">青春不散场</span><span class="comment-time">11 月 7 日 22:10</span></div><div class="comment-text">《青春往事》导演剪辑版多出来的配角线才是精华，正片里删掉太可惜了。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">王</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">王朝打工人</span><span class="comment-time">11 月 7 日 19:55</span></div><div class="comment-text">《王朝机密》的屋顶追逐戏是实拍吗？看花絮好像是演员自己上的，挺拼的。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">悲</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">悲伤逆流成河</span><span class="comment-time">11 月 6 日 21:30</span></div><div class="comment-text">《有一种悲伤》大结局那个反转我确实没猜到，但回头想想前面的线索又都对得上，编剧厉害。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">O</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">OST循环中</span><span class="comment-time">11 月 6 日 14:20</span></div><div class="comment-text">《泪之女王》第五首 OST 出来之后我循环了一整天，那个乐队之前给《青春往事》也唱过插曲。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">古</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">古装剧爱好者</span><span class="comment-time">11 月 5 日 16:45</span></div><div class="comment-text">古装韩剧的官职体系确实需要点耐心，但《王朝机密》已经算友好，至少没有一上来就十几个大臣。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">快</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">快进键坏了</span><span class="comment-time">11 月 5 日 11:10</span></div><div class="comment-text">复仇剧最怕反派太蠢，《黑暗荣耀》里那几个加害者各有各的恶法，看着不重复。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">周</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">周末补剧人</span><span class="comment-time">11 月 4 日 20:00</span></div><div class="comment-text">《猫一只》适合吃饭的时候看，一集 30 多分钟刚刚好，不会太沉重。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">编</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">编剧学徒</span><span class="comment-time">11 月 4 日 15:30</span></div><div class="comment-text">《背着善宰跑》的穿越规则比同类剧清晰，每次改变都有代价，这点值得学习。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">中</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">中立观众</span><span class="comment-time">11 月 3 日 18:20</span></div><div class="comment-text">《泪之女王》中间几集有点拖，但第 12 集之后节奏又回来了，整体还是值得看。</div></div></div>
+          <div class="comment-item"><div class="comment-avatar">夜</div><div class="comment-body"><div class="comment-meta"><span class="comment-user">夜猫子追剧</span><span class="comment-time">11 月 2 日 23:50</span></div><div class="comment-text">《医院监护》第 9 集实习医生犯错那段太真实了，医疗剧终于不是全员天才设定。</div></div></div>
+        </div>
+      </section>
+
+      <!-- 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2>相关资讯</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <a href="/#news" class="news-title">《泪之女王》第 14 集收视率小幅回升</a>
+            <div class="news-meta">2026-11-08 · 收视动态</div>
+            <div class="news-summary">家庭线回归后观众讨论度增加，白贤宇与洪海仁的对手戏成为本集主要看点。</div>
+          </div>
+          <div class="news-item">
+            <a href="/#news" class="news-title">《背着善宰跑》第 12 集延播一周</a>
+            <div class="news-meta">2026-11-07 · 播出调整</div>
+            <div class="news-summary">平台公告称因后期制作需要，第 12 集顺延至 11 月 9 日 21:00 上线。</div>
+          </div>
+          <div class="news-item">
+            <a href="/#news" class="news-title">《黑暗荣耀》角色解析专题新增六章内容</a>
+            <div class="news-meta">2026-11-05 · 专题更新</div>
+            <div class="news-summary">围绕文东恩的复仇计划与关键道具展开，包含主创访谈摘录。</div>
+          </div>
+          <div class="news-item">
+            <a href="/#news" class="news-title">《猫一只》特别篇定档 11 月下旬</a>
+            <div class="news-meta">2026-11-04 · 新作预告</div>
+            <div class="news-summary">30 分钟特别篇以配角猫的视角展开，正片未交代的日常片段将得到补充。</div>
+          </div>
+          <div class="news-item">
+            <a href="/#news" class="news-title">《有一种悲伤》大结局登上社区讨论榜首</a>
+            <div class="news-meta">2026-11-03 · 社区热议</div>
+            <div class="news-summary">反转情节引发二次解读，单日新增讨论帖超过 3000 条，评分维持在 8.7。</div>
+          </div>
+          <div class="news-item">
+            <a href="/#news" class="news-title">《青春往事》导演剪辑版新增配角线</a>
+            <div class="news-meta">2026-11-01 · 版本上线</div>
+            <div class="news-summary">新增约 20 分钟片段，集中在配角友情线，导演表示这是更完整的叙事版本。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 相关推荐 -->
+      <section class="section" id="related">
+        <div class="section-head">
+          <h2>相关推荐方向</h2>
+          <span class="section-sub">延伸类型与条目</span>
+        </div>
+        <div class="tag-cloud">
+          <a href="/#featured">悬疑复仇剧</a>
+          <a href="/#featured">穿越奇幻爱情</a>
+          <a href="/#featured">医疗职场群像</a>
+          <a href="/#featured">古装权谋动作</a>
+          <a href="/#featured">治愈日常短剧</a>
+          <a href="/#featured">青春怀旧校园</a>
+          <a href="/#featured">家庭伦理长篇</a>
+          <a href="/#featured">OST 原声带</a>
+        </div>
+      </section>
+
+      <!-- 补充板块：热度榜单 -->
+      <section class="section" id="ranking">
+        <div class="section-head">
+          <h2>韩剧热度榜单</h2>
+          <span class="section-sub">2026 年 11 月 8 日更新</span>
+        </div>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num top">1</span><div class="rank-info"><div class="rank-name">泪之女王</div><div class="rank-sub">爱情 / 家庭 · 更新至第 14 集</div></div><span class="rank-score">9.2</span></div>
+          <div class="rank-item"><span class="rank-num top">2</span><div class="rank-info"><div class="rank-name">黑暗荣耀</div><div class="rank-sub">复仇 / 悬疑 · 全 16 集</div></div><span class="rank-score">9.5</span></div>
+          <div class="rank-item"><span class="rank-num top">3</span><div class="rank-info"><div class="rank-name">背着善宰跑</div><div class="rank-sub">奇幻 / 穿越 · 更新至第 11 集</div></div><span class="rank-score">8.9</span></div>
+          <div class="rank-item"><span class="rank-num">4</span><div class="rank-info"><div class="rank-name">医院监护</div><div class="rank-sub">医疗 / 职场 · 更新至第 9 集</div></div><span class="rank-score">8.8</span></div>
+          <div class="rank-item"><span class="rank-num">5</span><div class="rank-info"><div class="rank-name">有一种悲伤</div><div class="rank-sub">虐恋 / 悬疑 · 全 14 集</div></div><span class="rank-score">8.7</span></div>
+          <div class="rank-item"><span class="rank-num">6</span><div class="rank-info"><div class="rank-name">青春往事</div><div class="rank-sub">青春 / 友情 · 全 16 集</div></div><span class="rank-score">8.6</span></div>
+          <div class="rank-item"><span class="rank-num">7</span><div class="rank-info"><div class="rank-name">猫一只</div><div class="rank-sub">治愈 / 奇幻 · 全 12 集</div></div><span class="rank-score">8.4</span></div>
+          <div class="rank-item"><span class="rank-num">8</span><div class="rank-info"><div class="rank-name">王朝机密</div><div class="rank-sub">古装 / 权谋 · 全 20 集</div></div><span class="rank-score">8.3</span></div>
+        </div>
+      </section>
+
+      <!-- 补充板块：条目时间线 -->
+      <section class="section" id="timeline">
+        <div class="section-head">
+          <h2>近期韩剧时间线</h2>
+          <span class="section-sub">关键节点回顾</span>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-time">11 月 8 日</span>
+            <div class="update-body"><div class="update-title">《泪之女王》第 14 集上线</div><div class="update-summary">洪海仁病情转折，家族会议冲突升级。</div></div>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 7 日</span>
+            <div class="update-body"><div class="update-title">《背着善宰跑》延播公告</div><div class="update-summary">第 12 集顺延至 11 月 9 日，平台发布说明。</div></div>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 5 日</span>
+            <div class="update-body"><div class="update-title">《黑暗荣耀》专题更新</div><div class="update-summary">新增角色动机与道具解析，共六章。</div></div>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 4 日</span>
+            <div class="update-body"><div class="update-title">《猫一只》特别篇定档</div><div class="update-summary">11 月下旬上线，配角猫视角。</div></div>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 3 日</span>
+            <div class="update-body"><div class="update-title">《有一种悲伤》大结局讨论爆发</div><div class="update-summary">社区单日新增帖超过 3000 条。</div></div>
+          </div>
+          <div class="update-item">
+            <span class="update-time">11 月 1 日</span>
+            <div class="update-body"><div class="update-title">《青春往事》导演剪辑版上线</div><div class="update-summary">新增 20 分钟配角线片段。</div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="aux-sidebar" aria-label="辅助信息">
+      <div class="aux-panel">
+        <div class="aux-panel-head"><span class="dot"></span>今日热榜</div>
+        <ul class="aux-list">
+          <li><a href="/#ranking"><span class="aux-rank hot">1</span>泪之女王</a></li>
+          <li><a href="/#ranking"><span class="aux-rank hot">2</span>黑暗荣耀</a></li>
+          <li><a href="/#ranking"><span class="aux-rank hot">3</span>背着善宰跑</a></li>
+          <li><a href="/#ranking"><span class="aux-rank">4</span>医院监护</a></li>
+          <li><a href="/#ranking"><span class="aux-rank">5</span>有一种悲伤</a></li>
+          <li><a href="/#ranking"><span class="aux-rank">6</span>青春往事</a></li>
+        </ul>
+      </div>
+      <div class="aux-panel">
+        <div class="aux-panel-head"><span class="dot"></span>热门类型</div>
+        <div class="aux-tag-list">
+          <a href="/#categories">复仇</a>
+          <a href="/#categories">爱情</a>
+          <a href="/#categories">悬疑</a>
+          <a href="/#categories">穿越</a>
+          <a href="/#categories">医疗</a>
+          <a href="/#categories">古装</a>
+          <a href="/#categories">治愈</a>
+          <a href="/#categories">青春</a>
+        </div>
+      </div>
+      <div class="aux-panel">
+        <div class="aux-panel-head"><span class="dot"></span>编辑推荐</div>
+        <ul class="aux-list">
+          <li><a href="/#deep-dive">复仇剧布局感分析</a></li>
+          <li><a href="/#deep-dive">爱情剧化学反应判断</a></li>
+          <li><a href="/#deep-dive">穿越剧规则设定比较</a></li>
+          <li><a href="/#guide">第一次看韩剧从哪开始</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">韩</span>
+            <span class="brand-text">韩剧官网tv</span>
+          </div>
+          <p>聚合近期热门韩剧与经典类型剧，提供类型解析、观看顺序与社区讨论，帮助韩剧迷找到适合自己口味的作品。</p>
+        </div>
+        <div class="footer-col">
+          <h4>内容栏目</h4>
+          <ul>
+            <li><a href="/#featured">精选推荐</a></li>
+            <li><a href="/#updates">最新更新</a></li>
+            <li><a href="/#categories">分类入口</a></li>
+            <li><a href="/#deep-dive">深度解析</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>追剧参考</h4>
+          <ul>
+            <li><a href="/#ranking">热度榜单</a></li>
+            <li><a href="/#guide">观看顺序</a></li>
+            <li><a href="/#faq">常见问答</a></li>
+            <li><a href="/#timeline">更新时间线</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>社区与延伸</h4>
+          <ul>
+            <li><a href="/#comments">用户评论</a></li>
+            <li><a href="/#news">相关资讯</a></li>
+            <li><a href="/#related">相关推荐</a></li>
+            <li><a href="/#overview">领域概览</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-note">部分内容为示例数据，仅用于展示页面结构</span>
+        <span>© 2026 韩剧官网tv · 内容聚合示例</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // 本地搜索筛选
+      var searchInput = document.getElementById('search-input');
+      var searchForm = document.getElementById('search-form');
+      var searchEmpty = document.getElementById('search-empty');
+      var featuredCards = document.querySelectorAll('#featured .drama-card');
+      var updateItems = document.querySelectorAll('#updates .update-item');
+
+      function performSearch() {
+        var q = searchInput.value.trim().toLowerCase();
+        var visibleFeatured = 0;
+        var visibleUpdates = 0;
+        featuredCards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) visibleFeatured++;
+        });
+        updateItems.forEach(function(item) {
+          var text = item.textContent.toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          item.style.display = match ? '' : 'none';
+          if (match) visibleUpdates++;
+        });
+        if (q && visibleFeatured === 0 && visibleUpdates === 0) {
+          searchEmpty.classList.add('visible');
+        } else {
+          searchEmpty.classList.remove('visible');
+        }
+      }
+
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        performSearch();
+      });
+      searchInput.addEventListener('input', performSearch);
+    })();
+  </script>
+</body>
+  </html>
