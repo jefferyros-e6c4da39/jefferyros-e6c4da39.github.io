@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>影视工厂 - 剧集片单与幕后制作情报</title>
+<meta name="description" content="影视工厂聚合剧集片单、幕后制作、定档更新与类型解析，覆盖悬疑、古装、科幻、现实题材、动画电影与短剧赛道，适合追剧观众与影视制作爱好者按类型检索条目、比较看点与安排观看顺序。">
+<meta name="keywords" content="剧集片单,幕后制作,定档更新,类型解析,短剧赛道">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a2e'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23f5b942' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23f5b942'/%3E%3Crect x='12' y='12' width='10' height='10' rx='2' fill='%23e35d5d'/%3E%3Crect x='42' y='12' width='10' height='10' rx='2' fill='%2359b7c9'/%3E%3Crect x='12' y='42' width='10' height='10' rx='2' fill='%2359b7c9'/%3E%3Crect x='42' y='42' width='10' height='10' rx='2' fill='%23e35d5d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1a2e;
+  --ink-2:#2c2b45;
+  --paper:#f6f3ec;
+  --panel:#fffdf8;
+  --line:#e2dccf;
+  --line-strong:#cfc6b3;
+  --text:#23223a;
+  --muted:#6d6a80;
+  --gold:#f5b942;
+  --gold-deep:#c98a12;
+  --red:#e35d5d;
+  --teal:#2f8f9d;
+  --teal-soft:#e3f1f2;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 2px 0 rgba(27,26,46,.06), 0 10px 24px -14px rgba(27,26,46,.35);
+  --gap:22px;
+  --head-h:112px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--head-h) + 16px)}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 0%, #efe9db 0%, transparent 42%),
+    radial-gradient(circle at 88% 6%, #e6eef0 0%, transparent 40%),
+    var(--paper);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.32;letter-spacing:.01em}
+p{margin:0 0 .85em}
+ul,ol{margin:0 0 .9em;padding-left:1.2em}
+li{margin-bottom:.35em}
+button{font-family:inherit}
+
+/* ===== 吸顶区 ===== */
+.sticky-zone{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:var(--ink);
+  color:#f2ecdd;
+  font-size:13.5px;
+  padding:7px 20px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  border-bottom:1px solid #3b3954;
+}
+.notice-bar .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;box-shadow:0 0 0 3px rgba(245,185,66,.18)}
+.notice-bar b{color:var(--gold);font-weight:600}
+.notice-bar em{font-style:normal;color:#b9b4c9}
+.site-head{
+  background:rgba(255,253,248,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line-strong);
+  box-shadow:0 6px 18px -16px rgba(27,26,46,.6);
+}
+.head-inner{
+  max-width:1360px;margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand-mark{width:44px;height:44px;flex:none}
+.brand-name{font-size:23px;font-weight:800;letter-spacing:.04em;color:var(--ink)}
+.brand-sub{display:block;font-size:11px;color:var(--muted);letter-spacing:.22em;font-weight:500;margin-top:-2px}
+.head-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1;min-width:200px}
+.head-nav a{
+  font-size:14px;padding:6px 11px;border-radius:999px;color:var(--ink-2);
+  border:1px solid transparent;transition:.15s;
+}
+.head-nav a:hover{background:var(--teal-soft);border-color:#c3dfe2;color:#1f6b76}
+.head-tools{display:flex;align-items:center;gap:8px;flex:none}
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-wrap input{
+  width:180px;padding:7px 32px 7px 12px;border-radius:999px;
+  border:1px solid var(--line-strong);background:#fff;font-size:13.5px;color:var(--text);
+  transition:.2s;
+}
+.search-wrap input:focus{width:215px;border-color:var(--teal)}
+.search-wrap .sicon{position:absolute;right:10px;width:15px;height:15px;pointer-events:none;opacity:.55}
+.btn-ghost{
+  font-size:13.5px;padding:7px 15px;border-radius:999px;border:1px solid var(--ink);
+  background:transparent;color:var(--ink);cursor:pointer;font-weight:600;transition:.15s;
+}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.search-feedback{
+  max-width:1360px;margin:0 auto;padding:0 20px 10px;font-size:13px;color:var(--teal);font-weight:600;
+}
+.search-feedback[hidden]{display:none}
+
+/* ===== 布局 ===== */
+.shell{max-width:1360px;margin:0 auto;padding:26px 20px 60px}
+.portal{
+  display:grid;
+  grid-template-columns:184px minmax(0,1fr) 268px;
+  gap:var(--gap);
+  align-items:start;
+}
+@media(max-width:1024px){
+  .portal{grid-template-columns:minmax(0,1fr) 280px}
+  .rail-left{display:none}
+  .rail-left.mobile-on{display:block;grid-column:1/-1;order:3}
+}
+@media(max-width:740px){
+  .portal{grid-template-columns:minmax(0,1fr)}
+  .rail-right{order:5}
+  .search-wrap input{width:130px}
+  .search-wrap input:focus{width:150px}
+}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1b1a2e 0%,#2b2950 52%,#33305c 100%);
+  color:#f4f0e4;border-radius:20px;
+  padding:34px 34px 30px;margin-bottom:26px;
+  box-shadow:0 18px 40px -26px rgba(27,26,46,.8);
+}
+.hero::after{
+  content:"";position:absolute;inset:auto -60px -110px auto;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(245,185,66,.32),transparent 62%);pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr);gap:28px;align-items:center;position:relative;z-index:1}
+@media(max-width:860px){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero{padding:26px 20px}}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.16em;
+  color:var(--gold);border:1px solid rgba(245,185,66,.45);border-radius:999px;padding:4px 13px;margin-bottom:14px;
+}
+.hero h1{font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:.04em;margin-bottom:12px}
+.hero h1 span{color:var(--gold)}
+.hero-lead{font-size:15px;color:#cfc9e0;max-width:52ch;margin-bottom:18px}
+.hero-lead b{color:#fff;font-weight:600}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-main{
+  display:inline-block;background:var(--gold);color:#241e07;font-weight:700;font-size:14px;
+  padding:10px 20px;border-radius:999px;transition:.15s;border:1px solid var(--gold);
+}
+.btn-main:hover{background:#ffcd63}
+.btn-line{
+  display:inline-block;border:1px solid rgba(244,240,228,.42);color:#f4f0e4;font-size:14px;
+  padding:10px 20px;border-radius:999px;transition:.15s;
+}
+.btn-line:hover{background:rgba(244,240,228,.12)}
+.hero-figure{position:relative;height:230px}
+.hero-figure svg{width:100%;height:100%}
+@media(max-width:860px){.hero-figure{height:150px;order:-1}}
+
+/* ===== 通用板块 ===== */
+.section{margin-bottom:34px;scroll-margin-top:calc(var(--head-h) + 16px)}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.sec-head h2{font-size:20px;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.sec-head .tagline{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.sec-head .more{margin-left:auto;font-size:13px;color:var(--teal);font-weight:600}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+
+/* 概览 */
+.overview{font-size:15px;line-height:1.9;color:#33324a}
+.overview .lead-quote{
+  border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin:0 0 16px;
+  font-size:15.5px;color:var(--ink-2);font-weight:600;
+}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--teal-soft);color:#1f6b76;border:1px solid #c6e2e5;font-weight:600}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.18s;box-shadow:var(--shadow);
+}
+.card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e8e3d7}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-num{
+  position:absolute;left:9px;top:9px;background:rgba(27,26,46,.86);color:var(--gold);
+  font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;letter-spacing:.06em;
+}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-body h3{font-size:15.5px;font-weight:800;color:var(--ink)}
+.card-type{font-size:11.5px;color:var(--gold-deep);font-weight:700;letter-spacing:.05em}
+.card-desc{font-size:13px;color:#4a4962;line-height:1.68;margin:0}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.card-tags span{font-size:11.5px;color:var(--muted);background:#f0ece1;border-radius:5px;padding:1px 7px}
+.card-meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px;margin-top:4px}
+.card-meta b{color:var(--red);font-weight:700}
+
+/* 最新更新列表 */
+.update-list{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.update-list li{
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;padding:10px 4px;
+  border-bottom:1px dashed var(--line);margin:0;align-items:baseline;
+}
+.update-list li:last-child{border-bottom:0}
+.up-time{font-size:12px;color:var(--teal);font-weight:700;letter-spacing:.02em}
+.up-body strong{font-size:14.5px;color:var(--ink);font-weight:700}
+.up-body p{font-size:13px;color:var(--muted);margin:1px 0 0}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.cat-item{
+  display:flex;flex-direction:column;gap:2px;padding:12px 13px;border-radius:var(--radius-sm);
+  background:var(--panel);border:1px solid var(--line);transition:.15s;
+}
+.cat-item:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cat-item:hover .cat-en{color:var(--gold)}
+.cat-name{font-size:14.5px;font-weight:800;letter-spacing:.02em}
+.cat-en{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.cat-count{font-size:11.5px;color:var(--gold-deep);font-weight:700;margin-top:3px}
+
+/* 深度解析 */
+.deep h3{font-size:16.5px;font-weight:800;color:var(--ink);margin:20px 0 8px;padding-left:11px;border-left:4px solid var(--teal)}
+.deep h3:first-child{margin-top:0}
+.deep p{font-size:14.8px;line-height:1.9;color:#37364e}
+.deep ul{padding-left:1.15em}
+.deep li{font-size:14.5px;line-height:1.8;color:#37364e}
+.deep .cmp{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 6px}
+.deep .cmp th,.deep .cmp td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.deep .cmp th{background:#efeadf;font-weight:700;color:var(--ink)}
+.deep .cmp td:first-child{font-weight:700;color:var(--ink-2);white-space:nowrap}
+
+/* 体验指南 步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:st;display:grid;gap:12px}
+.steps li{
+  counter-increment:st;position:relative;padding:13px 15px 13px 52px;margin:0;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);position:absolute;left:14px;top:12px;
+  font-size:15px;font-weight:900;color:var(--gold-deep);letter-spacing:.02em;
+}
+.steps strong{display:block;font-size:14.5px;color:var(--ink);margin-bottom:2px}
+.steps span{font-size:13.5px;color:#4c4b64}
+
+/* FAQ */
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:0;margin-bottom:9px;overflow:hidden;
+}
+.faq summary{
+  cursor:pointer;padding:12px 16px;font-size:14.5px;font-weight:700;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:19px;color:var(--gold-deep);font-weight:400;line-height:1;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details[open] summary{background:#f3eee2;border-bottom:1px solid var(--line)}
+.faq .ans{padding:12px 16px 15px;font-size:13.8px;color:#43425c;line-height:1.82}
+.faq .ans p:last-child{margin-bottom:0}
+
+/* 评论 */
+.cmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px}
+.cmt{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.cmt-top{display:flex;align-items:center;gap:8px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:11.5px;font-weight:800;color:#fff;letter-spacing:0;
+}
+.cmt-nick{font-size:13px;font-weight:700;color:var(--ink)}
+.cmt-time{font-size:11px;color:var(--muted);margin-left:auto}
+.cmt-txt{font-size:13.3px;color:#43425c;line-height:1.72;margin:0}
+.cmt-tag{font-size:11.5px;color:var(--teal);font-weight:600}
+
+/* 资讯 */
+.news-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.news-list li{
+  display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;margin:0;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;
+}
+.news-list img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.news-body{padding:11px 14px 12px 0}
+.news-body h3{font-size:14.8px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.news-date{font-size:11.5px;color:var(--teal);font-weight:700;letter-spacing:.03em}
+.news-body p{font-size:13.2px;color:var(--muted);margin:4px 0 0;line-height:1.7}
+@media(max-width:520px){.news-list li{grid-template-columns:minmax(0,1fr)}.news-list img{aspect-ratio:16/7}.news-body{padding:0 14px 13px}}
+
+/* 相关推荐 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:8px}
+.tag-index a{
+  font-size:13px;padding:6px 13px;border-radius:999px;background:var(--panel);
+  border:1px solid var(--line-strong);color:var(--ink-2);font-weight:600;transition:.15s;
+}
+.tag-index a:hover{background:var(--gold);border-color:var(--gold);color:#241e07}
+.tag-index a small{color:var(--muted);font-weight:400;margin-left:4px}
+
+/* 榜单 */
+.rank-list{list-style:none;padding:0;margin:0;counter-reset:rk}
+.rank-list li{
+  counter-increment:rk;display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;
+  align-items:center;padding:9px 2px;border-bottom:1px dashed var(--line);margin:0;
+}
+.rank-list li:last-child{border-bottom:0}
+.rank-list li::before{
+  content:counter(rk);font-size:13.5px;font-weight:900;color:var(--muted);
+  text-align:center;grid-column:1;
+}
+.rank-list li:nth-child(-n+3)::before{color:var(--gold-deep)}
+.rank-name{font-size:14px;font-weight:700;color:var(--ink)}
+.rank-name small{display:block;font-size:11.5px;color:var(--muted);font-weight:400}
+.rank-val{font-size:12.5px;color:var(--red);font-weight:700;white-space:nowrap}
+
+/* 左栏频道索引 */
+.rail-left{position:sticky;top:calc(var(--head-h) + 14px)}
+.rail-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.rail-title{
+  font-size:12px;letter-spacing:.18em;color:var(--muted);font-weight:700;
+  padding:11px 14px 8px;text-transform:uppercase;
+}
+.ch-list{list-style:none;padding:0 8px 10px;margin:0}
+.ch-list li{margin:0}
+.ch-list a{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  font-size:13.8px;padding:7px 8px;border-radius:7px;color:var(--ink-2);font-weight:600;
+}
+.ch-list a:hover{background:var(--teal-soft);color:#1f6b76}
+.ch-list a i{font-style:normal;font-size:11px;color:var(--muted);font-weight:400}
+.rail-note{font-size:12px;color:var(--muted);padding:0 14px 13px;line-height:1.7}
+
+/* 右栏 */
+.rail-right{position:sticky;top:calc(var(--head-h) + 14px);display:grid;gap:16px}
+@media(max-width:1024px){.rail-right{position:static}}
+.side-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;box-shadow:var(--shadow)}
+.side-box h3{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.side-box h3::before{content:"";width:4px;height:15px;background:var(--gold);border-radius:2px}
+.side-stream{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.side-stream li{margin:0;font-size:13px;line-height:1.6;color:#43425c;padding-bottom:9px;border-bottom:1px dashed var(--line)}
+.side-stream li:last-child{border-bottom:0;padding-bottom:0}
+.side-stream b{display:block;color:var(--ink);font-size:13.4px;font-weight:700}
+.side-stream span{color:var(--teal);font-size:11.5px;font-weight:700}
+.side-tags{display:flex;flex-wrap:wrap;gap:6px}
+.side-tags a{font-size:12px;padding:3px 9px;border-radius:6px;background:#f0ece1;color:var(--ink-2)}
+.side-tags a:hover{background:var(--ink);color:#fff}
+
+/* 页尾 */
+.site-foot{background:var(--ink);color:#c9c4d8;margin-top:20px;padding:36px 20px 22px}
+.foot-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:26px}
+@media(max-width:860px){.foot-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.foot-inner{grid-template-columns:minmax(0,1fr)}}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot-brand svg{width:34px;height:34px}
+.foot-brand strong{font-size:19px;color:#fff;letter-spacing:.04em;font-weight:800}
+.foot-desc{font-size:13px;line-height:1.8;color:#a7a2bb;max-width:34ch}
+.foot-col h4{font-size:13px;color:var(--gold);letter-spacing:.1em;margin-bottom:9px;font-weight:700}
+.foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.foot-col a{font-size:13px;color:#b9b4c9}
+.foot-col a:hover{color:#fff}
+.foot-bottom{
+  max-width:1360px;margin:26px auto 0;padding-top:14px;border-top:1px solid #3a3854;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#8a85a1;
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-zone">
+  <div class="notice-bar" role="status">
+    <span class="dot" aria-hidden="true"></span>
+    <span>11 月 7 日新增 <b>12 条</b>幕后制作档案</span>
+    <em>|</em>
+    <span>《雾港来信》第 9 集已上线，导演剪辑版花絮同日释出</span>
+    <em>|</em>
+    <span>秋季档 <b>10 部</b>新剧定档表已更新</span>
+  </div>
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="brand" href="/#top" aria-label="影视工厂 首页">
+        <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="影视工厂标志：片盘与四角片夹">
+          <rect width="64" height="64" rx="14" fill="#1b1a2e"/>
+          <circle cx="32" cy="32" r="15" fill="none" stroke="#f5b942" stroke-width="4"/>
+          <circle cx="32" cy="32" r="4" fill="#f5b942"/>
+          <rect x="12" y="12" width="10" height="10" rx="2" fill="#e35d5d"/>
+          <rect x="42" y="12" width="10" height="10" rx="2" fill="#59b7c9"/>
+          <rect x="12" y="42" width="10" height="10" rx="2" fill="#59b7c9"/>
+          <rect x="42" y="42" width="10" height="10" rx="2" fill="#e35d5d"/>
+        </svg>
+        <span>
+          <span class="brand-name">影视工厂</span>
+          <span class="brand-sub">FILM &amp; SERIES WORKS</span>
+        </span>
+      </a>
+      <nav class="head-nav" aria-label="主题导航">
+        <a href="/#pick">精选片单</a>
+        <a href="/#updates">定档更新</a>
+        <a href="/#cats">类型频道</a>
+        <a href="/#deep">制作解析</a>
+        <a href="/#guide">观看路径</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#news">行业资讯</a>
+      </nav>
+      <div class="head-tools">
+        <div class="search-wrap">
+          <input id="siteSearch" type="search" placeholder="搜条目 / 类型 / 幕后" aria-label="在页内查找条目、类型或幕后制作内容">
+          <svg class="sicon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="#23223a" stroke-width="1.8"/><path d="M13 13l4 4" stroke="#23223a" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <button class="btn-ghost" type="button" id="menuToggle" aria-expanded="false" aria-controls="mobileChannels">类型频道</button>
+      </div>
+    </div>
+    <div class="search-feedback" id="searchFeedback" hidden></div>
+  </header>
+</div>
+
+<main class="shell" id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-kicker">片单 · 幕后 · 定档</span>
+        <h1 id="hero-title">影视工厂</h1>
+        <p class="hero-lead">这里汇集正在播出与待播的剧集片单、<b>幕后制作档案</b>、定档与更新节奏，以及悬疑、古装、科幻、现实题材、动画电影、微短剧六条赛道的类型解析。适合追剧观众按类型挑条目，也适合想弄清一部片子怎么拍出来的人顺着制作线往下读。</p>
+        <div class="hero-actions">
+          <a class="btn-main" href="/#pick">查看精选片单</a>
+          <a class="btn-line" href="/#updates">今日定档更新</a>
+        </div>
+      </div>
+      <div class="hero-figure" aria-hidden="true">
+        <svg viewBox="0 0 320 230" role="presentation">
+          <defs>
+            <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5b942" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#e35d5d" stop-opacity=".55"/>
+            </linearGradient>
+            <linearGradient id="hg2" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#59b7c9" stop-opacity=".8"/>
+              <stop offset="1" stop-color="#2f8f9d" stop-opacity=".25"/>
+            </linearGradient>
+          </defs>
+          <circle cx="160" cy="112" r="78" fill="none" stroke="url(#hg1)" stroke-width="2" stroke-dasharray="5 7"/>
+          <circle cx="160" cy="112" r="52" fill="none" stroke="url(#hg2)" stroke-width="10" stroke-opacity=".55"/>
+          <circle cx="160" cy="112" r="14" fill="#f5b942" opacity=".9"/>
+          <rect x="34" y="34" width="52" height="38" rx="6" fill="#59b7c9" opacity=".38"/>
+          <rect x="234" y="46" width="52" height="38" rx="6" fill="#e35d5d" opacity=".42"/>
+          <rect x="44" y="152" width="46" height="34" rx="6" fill="#f5b942" opacity=".35"/>
+          <rect x="228" y="150" width="52" height="38" rx="6" fill="#59b7c9" opacity=".3"/>
+          <path d="M100 112 h120" stroke="#f4f0e4" stroke-opacity=".2" stroke-width="1.5"/>
+          <path d="M160 52 v120" stroke="#f4f0e4" stroke-opacity=".2" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="portal">
+
+    <!-- 左栏：频道索引 -->
+    <aside class="rail-left" id="mobileChannels" aria-label="类型频道索引">
+      <div class="rail-box">
+        <p class="rail-title">类型频道</p>
+        <ul class="ch-list">
+          <li><a href="/#cats">悬疑推理 <i>42</i></a></li>
+          <li><a href="/#cats">古装传奇 <i>36</i></a></li>
+          <li><a href="/#cats">科幻设定 <i>28</i></a></li>
+          <li><a href="/#cats">现实题材 <i>31</i></a></li>
+          <li><a href="/#cats">动画电影 <i>24</i></a></li>
+          <li><a href="/#cats">微短剧 <i>57</i></a></li>
+          <li><a href="/#cats">幕后制作 <i>19</i></a></li>
+          <li><a href="/#cats">纪录片 <i>16</i></a></li>
+        </ul>
+      </div>
+      <div class="rail-box">
+        <p class="rail-title">制作环节</p>
+        <ul class="ch-list">
+          <li><a href="/#deep">剧本开发</a></li>
+          <li><a href="/#deep">选角与试镜</a></li>
+          <li><a href="/#deep">摄影与灯光</a></li>
+          <li><a href="/#deep">美术与置景</a></li>
+          <li><a href="/#deep">剪辑与配乐</a></li>
+        </ul>
+        <p class="rail-note">按环节读幕后档案，比按作品读更容易比较不同剧组的做法差异。</p>
+      </div>
+    </aside>
+
+    <!-- 中主内容 -->
+    <div>
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview" aria-labelledby="h-overview">
+        <div class="sec-head">
+          <h2 id="h-overview">剧集与幕后制作领域概览</h2>
+          <span class="tagline">六条赛道 · 五道制作工序</span>
+        </div>
+        <div class="panel overview">
+          <p class="lead-quote">一部剧从立项到上线通常要穿过剧本开发、选角试镜、拍摄、后期、定档五道工序，每一道都会留下可供对照的公开信息。</p>
+          <p>影视工厂这个领域大致可以拆成两条线。第一条是消费线：观众关心某部剧什么时候播、更新几集、值不值得开、和同类型作品比强在哪。第二条是制作线：观众想知道这场长镜头怎么拍的、那个城市场景是搭的还是找的、配乐为什么这样用、剪辑版本和播出集数差在哪。两条线交汇在同一个对象上——具体条目。</p>
+          <p>当前六条赛道的状态差别明显。<strong>悬疑推理</strong>进入高密度排播期，12 集左右的短季结构成为主流，单集 45 分钟上下，多数采用双线叙事；<strong>古装传奇</strong>偏向大制作长剧，40 集体量常见，美术与服化道的投入差距直接体现在观感上；<strong>科幻设定</strong>数量少但集中在年底，视效周期长导致定档常常推后；<strong>现实题材</strong>以 24—30 集的都市与职场题材为主，编剧署名和剧本顾问的公开度高于其他赛道；<strong>动画电影</strong>看的是分镜与渲染工期，制作特辑比正片预告更能反映成色；<strong>微短剧</strong>单集 2—5 分钟，更新节奏按周批量释放，判断标准与长剧完全不同。</p>
+          <p>值得关注的具体方向包括：导演剪辑版与播出集的差异、剧集的美术预算如何体现在场景复用率上、悬疑剧的线索埋设密度、古装剧的实景与外景比例、微短剧的钩子节奏。这些都能从公开的制作特辑、访谈和分集信息里找到线索，也是这个领域最容易被忽略但最有判断价值的部分。</p>
+          <div class="badge-row">
+            <span class="badge">导演剪辑版</span>
+            <span class="badge">分集更新节奏</span>
+            <span class="badge">场景复用率</span>
+            <span class="badge">线索埋设密度</span>
+            <span class="badge">视效工期</span>
+            <span class="badge">钩子节奏</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="pick" aria-labelledby="h-pick">
+        <div class="sec-head">
+          <h2 id="h-pick">精选片单与幕后档案</h2>
+          <span class="tagline">9 个可查条目 · 含制作看点</span>
+          <a class="more" href="/#updates">看更新 →</a>
+        </div>
+        <div class="card-grid">
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">01</span>
+              <img src="https://picsum.photos/seed/wugang-laixin47/400/300" width="400" height="300" loading="lazy" alt="雾港来信剧集海报：雨夜码头与灯塔剪影">
+            </div>
+            <div class="card-body">
+              <span class="card-type">悬疑推理 · 12 集短季</span>
+              <h3>雾港来信</h3>
+              <p class="card-desc">双线叙事，一条查旧案一条查当下失踪。第 9 集用一镜到底拍完整段审讯，制作特辑里能看到三台机位怎么换手，是今年悬疑剧里调度最敢的一部。</p>
+              <div class="card-tags"><span>双线叙事</span><span>一镜到底</span><span>码头实景</span></div>
+              <div class="card-meta"><span>更新至 9 集</span><b>热度 9.4</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">02</span>
+              <img src="https://picsum.photos/seed/changan-yedu12/400/300" width="400" height="300" loading="lazy" alt="长安夜渡古装剧照：城门灯火与长街人流">
+            </div>
+            <div class="card-body">
+              <span class="card-type">古装传奇 · 40 集</span>
+              <h3>长安夜渡</h3>
+              <p class="card-desc">以漕运与夜禁为背景，前 8 集把长安城的宵禁制度讲得相当细。美术组搭了两条街共 800 米实景，服化道按品阶分色，值得逐集对照看。</p>
+              <div class="card-tags"><span>漕运背景</span><span>实景搭街</span><span>品阶服色</span></div>
+              <div class="card-meta"><span>更新至 18 集</span><b>热度 9.1</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">03</span>
+              <img src="https://picsum.photos/seed/xingji-zhimen31/400/300" width="400" height="300" loading="lazy" alt="星际之门：静默轨道科幻剧照：环形空间站">
+            </div>
+            <div class="card-body">
+              <span class="card-type">科幻设定 · 10 集</span>
+              <h3>星际之门：静默轨道</h3>
+              <p class="card-desc">硬科幻设定，围绕轨道站失压事故展开。视效镜头约 420 个，制作特辑里能看到空间站模型的实体搭建与虚拟补光如何衔接，工期拖了两个月才定档。</p>
+              <div class="card-tags"><span>硬科幻</span><span>实体模型</span><span>视效工期</span></div>
+              <div class="card-meta"><span>11 月 6 日上线</span><b>热度 8.9</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">04</span>
+              <img src="https://picsum.photos/seed/zao-ban-gongjiao08/400/300" width="400" height="300" loading="lazy" alt="早班公交现实题材剧照：清晨公交车厢与通勤人群">
+            </div>
+            <div class="card-body">
+              <span class="card-type">现实题材 · 26 集</span>
+              <h3>早班公交</h3>
+              <p class="card-desc">写公交司机与沿线乘客的群像，剧本顾问有真实的线路调度员。每集结构按一条线路的站点推进，编剧署名和顾问名单在片尾公开，这类透明度在都市剧里少见。</p>
+              <div class="card-tags"><span>群像叙事</span><span>职业细节</span><span>剧本顾问</span></div>
+              <div class="card-meta"><span>更新至 14 集</span><b>热度 8.7</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">05</span>
+              <img src="https://picsum.photos/seed/qianshui-fengzheng26/400/300" width="400" height="300" loading="lazy" alt="潜水风筝动画电影海报：水下漂浮的风筝与少年">
+            </div>
+            <div class="card-body">
+              <span class="card-type">动画电影 · 96 分钟</span>
+              <h3>潜水风筝</h3>
+              <p class="card-desc">二维手绘加三维水体，水下镜头的浮力感靠逐帧手调。制作特辑里公开了分镜到成片的对照段落，看分镜怎么被砍掉三分之一最直观。</p>
+              <div class="card-tags"><span>二维手绘</span><span>水体渲染</span><span>分镜对照</span></div>
+              <div class="card-meta"><span>10 月 31 日上映</span><b>评分 8.6</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">06</span>
+              <img src="https://picsum.photos/seed/sanfenzhong-loushang15/400/300" width="400" height="300" loading="lazy" alt="三分钟楼上微短剧封面：老式居民楼楼梯口">
+            </div>
+            <div class="card-body">
+              <span class="card-type">微短剧 · 单集 3 分钟</span>
+              <h3>三分钟楼上</h3>
+              <p class="card-desc">一栋楼六户人家的短剧集，每集只拍一层楼梯。钩子设在第 40 秒前后，节奏模板稳定，适合拿来对照研究微短剧的开场结构。</p>
+              <div class="card-tags"><span>单集三分钟</span><span>钩子节奏</span><span>单元结构</span></div>
+              <div class="card-meta"><span>本周更新 20 集</span><b>热度 8.2</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">07</span>
+              <img src="https://picsum.photos/seed/beian-jiedu55/400/300" width="400" height="300" loading="lazy" alt="备案解读纪录片画面：档案柜与卷宗">
+            </div>
+            <div class="card-body">
+              <span class="card-type">纪录片 · 6 集</span>
+              <h3>备案解读</h3>
+              <p class="card-desc">讲影视项目从备案到开机的流程，把立项材料、变更记录和开机时间的关系讲清楚了。想理解一部剧为什么迟迟不开机，这六集能给出制度层面的解释。</p>
+              <div class="card-tags"><span>立项流程</span><span>变更记录</span><span>开机周期</span></div>
+              <div class="card-meta"><span>全 6 集已上</span><b>评分 8.4</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">08</span>
+              <img src="https://picsum.photos/seed/yinmu-beihou02/400/300" width="400" height="300" loading="lazy" alt="银幕背后制作特辑画面：摄影机与灯光架">
+            </div>
+            <div class="card-body">
+              <span class="card-type">幕后制作 · 制作特辑</span>
+              <h3>银幕背后：长镜头拆解</h3>
+              <p class="card-desc">把五部剧的长镜头逐段拆开，标注机位、走位和藏剪辑点。适合已经看过正片、想弄清运镜逻辑的观众，单集 22 分钟，信息密度很高。</p>
+              <div class="card-tags"><span>长镜头</span><span>机位走位</span><span>藏剪辑点</span></div>
+              <div class="card-meta"><span>11 月 3 日更新</span><b>评分 8.8</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img"><span class="card-num">09</span>
+              <img src="https://picsum.photos/seed/dongji-dangan19/400/300" width="400" height="300" loading="lazy" alt="冬季档档案手册封面：台历与排播表">
+            </div>
+            <div class="card-body">
+              <span class="card-type">排播档案 · 工具向</span>
+              <h3>冬季档排播表</h3>
+              <p class="card-desc">按周整理 11 月至次年 1 月的定档、改档与集数变化，含平台与更新频率。追多部剧时用它避免撞档，也能看清改档集中在哪几周。</p>
+              <div class="card-tags"><span>定档表</span><span>改档记录</span><span>更新频率</span></div>
+              <div class="card-meta"><span>11 月 8 日同步</span><b>已收录 34 部</b></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="section" id="updates" aria-labelledby="h-updates">
+        <div class="sec-head">
+          <h2 id="h-updates">最新更新与定档动态</h2>
+          <span class="tagline">11 月 6 日 — 11 月 8 日</span>
+        </div>
+        <div class="panel">
+          <ul class="update-list">
+            <li><span class="up-time">今天 09:30</span><div class="up-body"><strong>《雾港来信》第 9 集上线</strong><p>审讯长镜头段落完整释出，同步发布 6 分钟机位拆解花絮。</p></div></li>
+            <li><span class="up-time">今天 08:10</span><div class="up-body"><strong>《星际之门：静默轨道》全 10 集一次放出</strong><p>平台采用整季上线策略，视效镜头清单随制作特辑一并公开。</p></div></li>
+            <li><span class="up-time">昨天 21:10</span><div class="up-body"><strong>《长安夜渡》第 18 集更新</strong><p>漕运码头大场面启用 300 名群演，美术组发布置景平面图。</p></div></li>
+            <li><span class="up-time">昨天 17:40</span><div class="up-body"><strong>《早班公交》第 14 集上线</strong><p>本集聚焦末班车乘客，片尾新增线路调度顾问署名。</p></div></li>
+            <li><span class="up-time">11 月 7 日</span><div class="up-body"><strong>《三分钟楼上》本周批量更新 20 集</strong><p>第二单元六户人家全部登场，钩子时间点前移至第 35 秒。</p></div></li>
+            <li><span class="up-time">11 月 7 日</span><div class="up-body"><strong>《银幕背后：长镜头拆解》第 4 集更新</strong><p>拆解对象为《雾港来信》第 9 集，标注三台机位换手节点。</p></div></li>
+            <li><span class="up-time">11 月 6 日</span><div class="up-body"><strong>冬季档新增 3 部定档</strong><p>两部悬疑短季定在 12 月上旬，一部古装长剧推迟至 1 月。</p></div></li>
+            <li><span class="up-time">11 月 6 日</span><div class="up-body"><strong>《潜水风筝》密钥延期至 11 月 30 日</strong><p>排片下调但保留艺术影厅场次，导演分镜手稿展同步开放。</p></div></li>
+            <li><span class="up-time">11 月 5 日</span><div class="up-body"><strong>《备案解读》第 6 集上线，全季完结</strong><p>本集讲变更记录与开机时间的关系，附 12 个项目的公开时间线。</p></div></li>
+            <li><span class="up-time">11 月 4 日</span><div class="up-body"><strong>《长安夜渡》改档说明发布</strong><p>第 19 至 22 集调整为每周双更，制作方称后期调色周期延长。</p></div></li>
+            <li><span class="up-time">11 月 3 日</span><div class="up-body"><strong>《早班公交》编剧访谈公开</strong><p>谈到线路调度员如何参与前六集剧本围读，附围读记录节选。</p></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="cats" aria-labelledby="h-cats">
+        <div class="sec-head">
+          <h2 id="h-cats">按类型找条目</h2>
+          <span class="tagline">8 个类型频道</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-item" href="/#pick"><span class="cat-name">悬疑推理</span><span class="cat-en">Mystery</span><span class="cat-count">42 条 · 双线叙事为主</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">古装传奇</span><span class="cat-en">Period Drama</span><span class="cat-count">36 条 · 大制作长剧</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">科幻设定</span><span class="cat-en">Sci-Fi</span><span class="cat-count">28 条 · 视效周期长</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">现实题材</span><span class="cat-en">Realism</span><span class="cat-count">31 条 · 职业群像多</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">动画电影</span><span class="cat-en">Animation</span><span class="cat-count">24 条 · 看分镜与工期</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">微短剧</span><span class="cat-en">Short Series</span><span class="cat-count">57 条 · 单集 2—5 分钟</span></a>
+          <a class="cat-item" href="/#deep"><span class="cat-name">幕后制作</span><span class="cat-en">Behind Scenes</span><span class="cat-count">19 条 · 五道工序拆解</span></a>
+          <a class="cat-item" href="/#pick"><span class="cat-name">纪录片</span><span class="cat-en">Documentary</span><span class="cat-count">16 条 · 流程与制度</span></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section deep" id="deep" aria-labelledby="h-deep">
+        <div class="sec-head">
+          <h2 id="h-deep">类型差异与制作判断：六条赛道怎么比</h2>
+          <span class="tagline">附对照表与判断维度</span>
+        </div>
+        <div class="panel">
+          <h3>短季悬疑与长剧悬疑的结构差别</h3>
+          <p>12 集左右的短季悬疑和 30 集以上的长剧悬疑，最大的区别不在案件数量，而在线索埋设密度。短季通常每集埋 2—3 条可回收线索，第 4 集和第 8 集各设一次反转；长剧因为集数多，往往把线索分散到支线人物身上，回收周期更长，观众需要记住的人物关系也更杂。<strong>雾港来信</strong>属于前者，双线各 6 集，第 9 集的审讯长镜头同时收两条线的证据，这种把信息回收压在一个场景里的做法，在短季结构里效率最高。</p>
+          <p>判断一部悬疑剧值不值得追，可以先看两件事：前两集有没有给出明确的调查目标，以及第 3 集是否开始回收第 1 集埋的细节。如果到第 4 集还在铺新人物而没有回收，多半是长剧结构硬套短季节奏，后面容易失控。</p>
+
+          <h3>古装剧的实景比例与场景复用率</h3>
+          <p>古装传奇的观感差距，很大一部分来自实景与外景的比例，以及同一场景被复用的次数。<strong>长安夜渡</strong>搭了 800 米实景街，前 8 集里主街出现 11 次但每次机位和天气不同，复用不显重复；反面例子是只搭一座主殿、所有室内戏都在同一角度拍，观众看到第 10 集就会疲劳。看制作特辑时留意置景平面图，能直接判断剧组的空间储备。</p>
+          <ul>
+            <li>实景比例高于 40%：外景质感通常更稳定，但拍摄受天气影响大，改档概率上升。</li>
+            <li>场景复用率：同一空间在不同集数里的机位变化次数，是判断调度能力的直接指标。</li>
+            <li>服化道分色：按品阶或身份分色系的剧组，群戏辨识度明显更高。</li>
+          </ul>
+
+          <h3>科幻设定的视效工期与定档风险</h3>
+          <p>科幻赛道数量少，但定档最不稳定。视效镜头从设计到终版通常需要 4—6 个月，赶上平台排播窗口就会推后。<strong>星际之门：静默轨道</strong>的 420 个视效镜头里，约三分之一用了实体模型加虚拟补光，这类混合方案前期慢、后期快，是工期可控的做法。纯绿幕方案前期快，但后期修改成本高，一旦定档前调整设定就要重做。</p>
+          <table class="cmp">
+            <caption style="caption-side:bottom;font-size:12px;color:#6d6a80;text-align:left;padding-top:6px">三条赛道的制作周期与判断重点对照</caption>
+            <thead><tr><th>赛道</th><th>典型体量</th><th>周期瓶颈</th><th>判断重点</th></tr></thead>
+            <tbody>
+              <tr><td>悬疑短季</td><td>10—12 集</td><td>剧本打磨与线索回收</td><td>前 3 集回收密度</td></tr>
+              <tr><td>古装长剧</td><td>36—40 集</td><td>置景与拍摄窗口</td><td>实景比例、场景复用</td></tr>
+              <tr><td>科幻设定</td><td>8—12 集</td><td>视效终版与调色</td><td>视效方案是混合还是纯绿幕</td></tr>
+              <tr><td>微短剧</td><td>单集 2—5 分钟</td><td>批量产出与钩子节奏</td><td>钩子出现的时间点</td></tr>
+            </tbody>
+          </table>
+
+          <h3>现实题材的顾问署名与职业细节</h3>
+          <p>现实题材的可信度，很大程度看片尾的顾问名单。<strong>早班公交</strong>把线路调度员列进顾问，前六集剧本围读有记录可查，这类透明度让职业细节经得起推敲：报站顺序、交接班时间、末班车调度逻辑都能对上。相反，只挂“行业顾问”而不写具体职务的作品，细节往往靠想象补，看两三集就能发现。</p>
+          <p>另一个判断维度是职业场景的占比。都市剧如果职业戏只占三成、其余都是情感线，那它本质是情感剧套了职业外壳；如果职业场景超过一半且推动主线，才值得按现实题材的标准去评判。</p>
+
+          <h3>动画电影的分镜对照与工期信号</h3>
+          <p>动画电影的成色，制作特辑比预告片更可信。<strong>潜水风筝</strong>公开了分镜到成片的对照段落，能看到分镜被砍掉约三分之一，被砍的多是高难度水下长镜头——这既说明制作方在工期上做了取舍，也说明留下的镜头是打磨过的。看动画项目时，留意制作特辑里有没有分镜对照、渲染层数说明和工期节点，有这三样的通常制作管理更规范。</p>
+
+          <h3>微短剧的钩子节奏与长剧评价体系的错位</h3>
+          <p>微短剧单集 2—5 分钟，用长剧的评价体系去看会完全错位。它不追求人物弧光，追求的是每集前 40 秒内出现一个转折。<strong>三分钟楼上</strong>把钩子前移到第 35 秒，属于模板内的微调。判断一部微短剧，看的是钩子密度、单元之间是否有递进、结尾有没有留扣；用“剧情是否合理”去要求它，就像用短跑标准评价马拉松。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="h-guide">
+        <div class="sec-head">
+          <h2 id="h-guide">内容消费顺序与判断依据</h2>
+          <span class="tagline">从类型到条目的五步</span>
+        </div>
+        <ol class="steps">
+          <li><strong>先定赛道，再挑条目</strong><span>悬疑、古装、科幻、现实、动画、微短剧六条赛道的更新节奏和判断标准完全不同，先确定这周想看哪条，比在全部条目里乱翻效率高得多。</span></li>
+          <li><strong>用前两集做取舍</strong><span>长剧看前两集是否给出明确目标，短剧看前 40 秒有没有钩子。两集之后还在铺设定而没有推进的，可以先放一放。</span></li>
+          <li><strong>查更新节奏再决定追更还是一次看完</strong><span>周更的剧适合追，整季上线的适合攒完再开。冬季档排播表能看清哪些剧会撞档，避免同时追三部周更。</span></li>
+          <li><strong>看过正片再读制作特辑</strong><span>长镜头拆解、置景平面图、分镜对照这类内容，先看正片再读才有对照感，反过来读容易变成纯信息摄入。</span></li>
+          <li><strong>同类条目横向比一次</strong><span>同赛道挑两部同期作品，比实景比例、线索回收密度或钩子时间点，比单看一部更容易形成判断标准。</span></li>
+        </ol>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section faq" id="faq" aria-labelledby="h-faq">
+        <div class="sec-head">
+          <h2 id="h-faq">常见问题</h2>
+          <span class="tagline">6 个高频疑问</span>
+        </div>
+
+        <details>
+          <summary>悬疑短季一般多久更新一次？</summary>
+          <div class="ans"><p>国内平台的悬疑短季多为每周更新 2—3 集，12 集体量通常 4—6 周播完。也有整季一次性上线的做法，比如《星际之门：静默轨道》全 10 集同日放出，适合攒完再看的观众。追更前先确认是周更还是整季上线，会直接影响观看安排。</p></div>
+        </details>
+
+        <details>
+          <summary>导演剪辑版和播出集数差在哪？</summary>
+          <div class="ans"><p>差异通常集中在三处：单集时长、支线保留量和结局处理。导演剪辑版单集往往长出 5—10 分钟，多出来的部分多是人物支线和过渡镜头；结局部分有时会保留更开放的收尾。判断值不值得补看，可以先看制作特辑里有没有说明删减原因，没说明的多数只是节奏调整。</p></div>
+        </details>
+
+        <details>
+          <summary>第一次接触古装长剧，从哪部开始看比较好？</summary>
+          <div class="ans"><p>建议从体量适中的开始，比如 40 集左右、前 8 集节奏明确的《长安夜渡》。它的制度背景讲得细，前几集就把夜禁和漕运规则交代清楚，不需要额外补课。如果担心集数太长，可以先看前 6 集判断是否合口味，再决定是否追完。</p></div>
+        </details>
+
+        <details>
+          <summary>科幻剧的视效好坏怎么判断？</summary>
+          <div class="ans"><p>看三点：空间关系是否稳定、光源是否一致、镜头运动有没有穿帮。混合方案（实体模型加虚拟补光）在这三点上通常更稳，纯绿幕方案容易在人物与环境的光照衔接上出问题。制作特辑里如果公开了视效镜头数量和方案类型，判断起来会更有依据。</p></div>
+        </details>
+
+        <details>
+          <summary>微短剧和长剧的评价标准有什么不同？</summary>
+          <div class="ans"><p>微短剧看钩子密度、单元递进和结尾留扣，单集 2—5 分钟内要完成一次转折；长剧看人物弧光、线索回收和整体节奏。用长剧标准要求微短剧会显得处处不合理，反过来用微短剧标准看长剧又会觉得太慢。先明确自己在看哪一类，再选对应的判断维度。</p></div>
+        </details>
+
+        <details>
+          <summary>现实题材剧里的职业细节可信度怎么查？</summary>
+          <div class="ans"><p>先看片尾顾问名单有没有写具体职务，再看职业场景在整部剧里的占比。像《早班公交》把线路调度员列进顾问、公开围读记录，这类作品的专业细节通常经得起对照。只挂笼统“行业顾问”且职业戏占比不足一半的，多半是情感剧套了职业外壳。</p></div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="comments" aria-labelledby="h-comments">
+        <div class="sec-head">
+          <h2 id="h-comments">观众评论</h2>
+          <span class="tagline">16 条 · 含中性评价</span>
+        </div>
+        <div class="cmt-grid">
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#e35d5d">林</span><span class="cmt-nick">林间有雾</span><span class="cmt-time">今天 10:12</span></div><p class="cmt-txt">《雾港来信》第 9 集那个审讯长镜头，我回看了三遍才找到换机位的点，制作特辑标出来之后确实服气。</p><span class="cmt-tag">雾港来信</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#2f8f9d">阿</span><span class="cmt-nick">阿丘看片</span><span class="cmt-time">今天 09:48</span></div><p class="cmt-txt">静默轨道整季放出来有点意外，空间站的实体模型看得出来是真搭的，光照比纯绿幕稳太多。</p><span class="cmt-tag">星际之门：静默轨道</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#c98a12">长</span><span class="cmt-nick">长安扫地僧</span><span class="cmt-time">昨天 22:30</span></div><p class="cmt-txt">长安夜渡前八集的夜禁制度讲得细，但我看到第 15 集感觉支线有点拖，双更改成周更之后节奏会不会更散？</p><span class="cmt-tag">长安夜渡</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5a5a8c">公</span><span class="cmt-nick">公交末班车</span><span class="cmt-time">昨天 20:05</span></div><p class="cmt-txt">早班公交的报站顺序真的对，我天天坐这条线，细节没糊弄。顾问署名这点值得其他都市剧学。</p><span class="cmt-tag">早班公交</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#2f8f9d">潜</span><span class="cmt-nick">潜水员小陈</span><span class="cmt-time">昨天 18:22</span></div><p class="cmt-txt">潜水风筝的水下浮力感做得不错，但中段有大概五分钟节奏偏慢，小朋友可能会走神。</p><span class="cmt-tag">潜水风筝</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#e35d5d">三</span><span class="cmt-nick">三分钟上瘾</span><span class="cmt-time">11 月 7 日 21:40</span></div><p class="cmt-txt">三分钟楼上第二单元的钩子提前到 35 秒，感觉有点赶，第一单元的 40 秒反而更舒服。</p><span class="cmt-tag">三分钟楼上</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5a5a8c">银</span><span class="cmt-nick">银幕侧幕</span><span class="cmt-time">11 月 7 日 19:15</span></div><p class="cmt-txt">长镜头拆解第 4 集把藏剪辑点标出来了，这种内容比单纯夸运镜有用多了。</p><span class="cmt-tag">银幕背后：长镜头拆解</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#c98a12">档</span><span class="cmt-nick">档期管理员</span><span class="cmt-time">11 月 7 日 15:02</span></div><p class="cmt-txt">冬季档排播表更新挺及时，12 月上旬两部悬疑撞在一起，得提前决定先追哪部。</p><span class="cmt-tag">冬季档排播表</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#2f8f9d">备</span><span class="cmt-nick">备案观察员</span><span class="cmt-time">11 月 6 日 22:18</span></div><p class="cmt-txt">备案解读最后一集把变更记录和开机时间的关系讲清楚了，终于明白有些剧为什么备案两年才开机。</p><span class="cmt-tag">备案解读</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#e35d5d">雾</span><span class="cmt-nick">雾里看剧</span><span class="cmt-time">11 月 6 日 20:44</span></div><p class="cmt-txt">雾港来信前两集调查目标给得明确，这点比同期几部强，很多悬疑剧前三集都在铺人物。</p><span class="cmt-tag">雾港来信</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5a5a8c">古</span><span class="cmt-nick">古装服化控</span><span class="cmt-time">11 月 6 日 16:30</span></div><p class="cmt-txt">长安夜渡的品阶服色做得细，但中段有几场室内戏机位重复，看着有点疲。</p><span class="cmt-tag">长安夜渡</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#c98a12">硬</span><span class="cmt-nick">硬科幻老周</span><span class="cmt-time">11 月 5 日 23:07</span></div><p class="cmt-txt">静默轨道的失压事故设定基本站得住，只有一处阀门操作不太对，整体在国产硬科幻里算扎实。</p><span class="cmt-tag">星际之门：静默轨道</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#2f8f9d">编</span><span class="cmt-nick">编剧旁听生</span><span class="cmt-time">11 月 5 日 18:50</span></div><p class="cmt-txt">早班公交的围读记录节选挺少见，能看到顾问怎么改台词，这种公开度对写职业剧的人有参考价值。</p><span class="cmt-tag">早班公交</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#e35d5d">动</span><span class="cmt-nick">动画分镜迷</span><span class="cmt-time">11 月 4 日 21:26</span></div><p class="cmt-txt">潜水风筝被砍掉三分之一分镜有点可惜，但留下的水下长镜头确实是打磨过的，能理解工期取舍。</p><span class="cmt-tag">潜水风筝</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5a5a8c">短</span><span class="cmt-nick">短剧流水线</span><span class="cmt-time">11 月 4 日 14:11</span></div><p class="cmt-txt">三分钟楼上的单元递进做得一般，六户人家之间关联不强，钩子密度够但整体记忆点不多。</p><span class="cmt-tag">三分钟楼上</span></div>
+
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#c98a12">追</span><span class="cmt-nick">追更小分队</span><span class="cmt-time">11 月 3 日 20:39</span></div><p class="cmt-txt">雾港来信和长安夜渡都在追，一个周更一个双更，排播表帮了大忙，不然真记不住哪集更新。</p><span class="cmt-tag">冬季档排播表</span></div>
+
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news" aria-labelledby="h-news">
+        <div class="sec-head">
+          <h2 id="h-news">相关资讯</h2>
+          <span class="tagline">11 月 1 日 — 11 月 8 日</span>
+        </div>
+        <ul class="news-list">
+          <li>
+            <img src="https://picsum.photos/seed/xuanyi-paibo23/600/400" width="600" height="400" loading="lazy" alt="悬疑短季排播调整资讯配图：排播日历与剧集列表">
+            <div class="news-body">
+              <h3>12 月悬疑短季排播调整，两部作品同周开播</h3>
+              <span class="news-date">2026-11-08</span>
+              <p>平台把两部 12 集悬疑短季安排在同一周上线，一部周更一部整季放出，排播策略明显分化。</p>
+            </div>
+          </li>
+          <li>
+            <img src="https://picsum.photos/seed/guzhuang-shijing41/600/400" width="600" height="400" loading="lazy" alt="古装剧实景搭景资讯配图：影视基地街道布景">
+            <div class="news-body">
+              <h3>古装剧组实景搭街成本上涨，置景复用成关注点</h3>
+              <span class="news-date">2026-11-07</span>
+              <p>多家影视基地反馈搭景成本上升，剧组开始用可拆卸模块提升场景复用率，置景平面图成为制作特辑常见内容。</p>
+            </div>
+          </li>
+          <li>
+            <img src="https://picsum.photos/seed/shixiao-gongqi07/600/400" width="600" height="400" loading="lazy" alt="科幻剧视效工期资讯配图：渲染工作站与模型">
+            <div class="news-body">
+              <h3>科幻剧视效工期普遍延长，混合方案比例上升</h3>
+              <span class="news-date">2026-11-06</span>
+              <p>行业内部统计显示，采用实体模型加虚拟补光的项目占比提高，纯绿幕项目因修改成本高而减少。</p>
+            </div>
+          </li>
+          <li>
+            <img src="https://picsum.photos/seed/weiduanju-gouzi18/600/400" width="600" height="400" loading="lazy" alt="微短剧钩子节奏资讯配图：手机竖屏播放界面">
+            <div class="news-body">
+              <h3>微短剧钩子时间点前移，35 秒成为新参考线</h3>
+              <span class="news-date">2026-11-04</span>
+              <p>新一批微短剧普遍把转折提前到第 35 秒左右，制作方称与观看完成率数据相关，但单元递进仍是被批评的薄弱环节。</p>
+            </div>
+          </li>
+          <li>
+            <img src="https://picsum.photos/seed/daoyan-jianji12/600/400" width="600" height="400" loading="lazy" alt="导演剪辑版上线资讯配图：剪辑台与时间线">
+            <div class="news-body">
+              <h3>两部悬疑剧宣布上线导演剪辑版，单集延长约 8 分钟</h3>
+              <span class="news-date">2026-11-02</span>
+              <p>剪辑版主要补回人物支线与过渡镜头，制作方在特辑中说明删减原因，观众可对照播出集判断是否补看。</p>
+            </div>
+          </li>
+          <li>
+            <img src="https://picsum.photos/seed/dongji-dang39/600/400" width="600" height="400" loading="lazy" alt="冬季档定档资讯配图：档期表与平台标识">
+            <div class="news-body">
+              <h3>冬季档定档表更新：古装长剧推迟，现实题材补位</h3>
+              <span class="news-date">2026-11-01</span>
+              <p>原定 12 月的一部古装长剧推迟至 1 月，空出的档期由两部现实题材剧补位，冬季档类型分布因此更偏向都市与职业。</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="related" aria-labelledby="h-related">
+        <div class="sec-head">
+          <h2 id="h-related">延伸方向与相关条目</h2>
+          <span class="tagline">按制作环节与类型延伸</span>
+        </div>
+        <div class="panel">
+          <div class="tag-index">
+            <a href="/#deep">长镜头调度 <small>运镜</small></a>
+            <a href="/#deep">置景平面图 <small>美术</small></a>
+            <a href="/#deep">分镜对照 <small>动画</small></a>
+            <a href="/#deep">线索回收密度 <small>悬疑</small></a>
+            <a href="/#guide">周更与整季上线 <small>排播</small></a>
+            <a href="/#deep">视效混合方案 <small>科幻</small></a>
+            <a href="/#deep">品阶服色 <small>古装</small></a>
+            <a href="/#deep">围读记录 <small>编剧</small></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 榜单 -->
+      <section class="section" id="rank" aria-labelledby="h-rank">
+        <div class="sec-head">
+          <h2 id="h-rank">本周条目热度榜</h2>
+          <span class="tagline">按站内浏览与讨论量排序 · 11 月 8 日更新</span>
+        </div>
+        <div class="panel">
+          <ol class="rank-list">
+            <li><div class="rank-name">雾港来信<small>悬疑推理 · 更新至 9 集</small></div><span class="rank-val">9.4</span></li>
+            <li><div class="rank-name">长安夜渡<small>古装传奇 · 更新至 18 集</small></div><span class="rank-val">9.1</span></li>
+            <li><div class="rank-name">星际之门：静默轨道<small>科幻设定 · 全 10 集</small></div><span class="rank-val">8.9</span></li>
+            <li><div class="rank-name">银幕背后：长镜头拆解<small>幕后制作 · 第 4 集</small></div><span class="rank-val">8.8</span></li>
+            <li><div class="rank-name">早班公交<small>现实题材 · 更新至 14 集</small></div><span class="rank-val">8.7</span></li>
+            <li><div class="rank-name">潜水风筝<small>动画电影 · 密钥延期中</small></div><span class="rank-val">8.6</span></li>
+            <li><div class="rank-name">备案解读<small>纪录片 · 全 6 集完结</small></div><span class="rank-val">8.4</span></li>
+            <li><div class="rank-name">三分钟楼上<small>微短剧 · 本周更新 20 集</small></div><span class="rank-val">8.2</span></li>
+          </ol>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右栏 -->
+    <aside class="rail-right" aria-label="辅助信息">
+      <div class="side-box">
+        <h3>更新流</h3>
+        <ul class="side-stream">
+          <li><b>雾港来信 第 9 集</b><span>今天 09:30</span></li>
+          <li><b>静默轨道 全 10 集</b><span>今天 08:10</span></li>
+          <li><b>长安夜渡 第 18 集</b><span>昨天 21:10</span></li>
+          <li><b>早班公交 第 14 集</b><span>昨天 17:40</span></li>
+          <li><b>三分钟楼上 20 集</b><span>11 月 7 日</span></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>制作关键词</h3>
+        <div class="side-tags">
+          <a href="/#deep">一镜到底</a>
+          <a href="/#deep">场景复用</a>
+          <a href="/#deep">品阶服色</a>
+          <a href="/#deep">混合视效</a>
+          <a href="/#deep">分镜对照</a>
+          <a href="/#deep">钩子节奏</a>
+          <a href="/#deep">围读记录</a>
+        </div>
+      </div>
+      <div class="side-box">
+        <h3>类型速览</h3>
+        <ul class="side-stream">
+          <li><b>悬疑推理</b>线索回收密度是核心判断点</li>
+          <li><b>古装传奇</b>看实景比例与复用次数</li>
+          <li><b>科幻设定</b>视效方案决定工期风险</li>
+          <li><b>现实题材</b>顾问署名反映细节可信度</li>
+          <li><b>微短剧</b>钩子时间点比剧情合理性更关键</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">
+        <svg viewBox="0 0 64 64" role="img" aria-label="影视工厂标志">
+          <rect width="64" height="64" rx="14" fill="#2c2b45"/>
+          <circle cx="32" cy="32" r="15" fill="none" stroke="#f5b942" stroke-width="4"/>
+          <circle cx="32" cy="32" r="4" fill="#f5b942"/>
+          <rect x="12" y="12" width="10" height="10" rx="2" fill="#e35d5d"/>
+          <rect x="42" y="12" width="10" height="10" rx="2" fill="#59b7c9"/>
+          <rect x="12" y="42" width="10" height="10" rx="2" fill="#59b7c9"/>
+          <rect x="42" y="42" width="10" height="10" rx="2" fill="#e35d5d"/>
+        </svg>
+        <strong>影视工厂</strong>
+      </div>
+      <p class="foot-desc">汇聚剧集片单、幕后制作档案与定档更新，按悬疑、古装、科幻、现实题材、动画电影、微短剧六条赛道整理可查条目。</p>
+    </div>
+    <div class="foot-col">
+      <h4>片单入口</h4>
+      <ul>
+        <li><a href="/#pick">精选片单与幕后档案</a></li>
+        <li><a href="/#updates">最新更新与定档动态</a></li>
+        <li><a href="/#cats">按类型找条目</a></li>
+        <li><a href="/#rank">本周条目热度榜</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>制作解析</h4>
+      <ul>
+        <li><a href="/#deep">短季悬疑结构差别</a></li>
+        <li><a href="/#deep">实景比例与复用率</a></li>
+        <li><a href="/#deep">视效工期与定档风险</a></li>
+        <li><a href="/#guide">内容消费顺序</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>互动与问答</h4>
+      <ul>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#comments">观众评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#related">延伸方向</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>影视工厂 · 剧集片单与幕后制作情报聚合</span>
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input=document.getElementById('siteSearch');
+  var fb=document.getElementById('searchFeedback');
+  var main=document.querySelector('main');
+  var items=main.querySelectorAll('.card, .update-list li, .cmt, .news-list li, .rank-list li, .cat-item, .side-stream li');
+  var total=items.length;
+  function clearMarks(){
+    items.forEach(function(el){el.style.display='';el.style.outline='';el.style.boxShadow='';});
+  }
+  function run(){
+    var q=(input.value||'').trim().toLowerCase();
+    if(!q){clearMarks();fb.hidden=true;return;}
+    var hit=0;
+    items.forEach(function(el){
+      var t=(el.textContent||'').toLowerCase();
+      if(t.indexOf(q)>-1){el.style.display='';hit++;
+        el.style.outline='2px solid #2f8f9d';el.style.outlineOffset='1px';
+      }else{
+        el.style.display='none';el.style.outline='';
+      }
+    });
+    fb.hidden=false;
+    if(hit===0){
+      fb.textContent='没有找到与“'+input.value.trim()+'”匹配的条目，试试输入剧名、类型或制作环节关键词。';
+      fb.style.color='#e35d5d';
+    }else{
+      fb.textContent='页面内匹配到 '+hit+' 条相关内容（共 '+total+' 条可检索项）。';
+      fb.style.color='#2f8f9d';
+    }
+  }
+  input.addEventListener('input',run);
+  input.addEventListener('search',run);
+
+  var btn=document.getElementById('menuToggle');
+  var rail=document.getElementById('mobileChannels');
+  btn.addEventListener('click',function(){
+    var on=rail.classList.toggle('mobile-on');
+    btn.setAttribute('aria-expanded',on?'true':'false');
+  });
+})();
+</script>
+</body>
+  </html>
